@@ -6,16 +6,18 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    Visual visual;
     public float Hspeed; //скорость(горизонтальная)
     public float Vspeed; //скорость(вертикальная)
-    public float speedModificator = 0.01f;
+    public float speedModificator;
 
     // Start is called before the first frame update
     void Start()
     {
-    
+        visual = GetComponent<Visual>();
     }
 
+    float oldhspeed = 0;
     // Update is called once per frame
     void Update()
     {
@@ -34,6 +36,11 @@ public class Movement : MonoBehaviour
         }
         velocity += new Vector3(Hspeed * speedModificator, Vspeed * speedModificator, 0);
         transform.position += velocity;
+        if (Hspeed != oldhspeed)
+        {
+            visual.SpeedChanged(Hspeed);
+        }
+        oldhspeed = Hspeed;
         #endregion
     }
 }
