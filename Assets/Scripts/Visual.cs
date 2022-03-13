@@ -62,7 +62,7 @@ public class Visual : MonoBehaviour
                     Debug.Log("Coroutine stopped");
                     oldState = 1;
                     if (!isWalk)
-                        StartCoroutine(Animate(walk, 0.25f));
+                        StartCoroutine(Animate(walk, 0.1f));
                     isWalk = true;
                 }
                 break;
@@ -74,7 +74,7 @@ public class Visual : MonoBehaviour
                     Debug.Log("Coroutine stopped");
                     oldState = -1;
                     if (!isWalk)
-                        StartCoroutine(Animate(walk, 0.25f));
+                        StartCoroutine(Animate(walk, 0.1f));
                     isWalk = true;
                 }
                 break;
