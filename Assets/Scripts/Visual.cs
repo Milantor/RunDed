@@ -28,12 +28,23 @@ public class Visual : MonoBehaviour
             walk = new List<Sprite>();
             walkIndex = 0;
         }
+       //StartCoroutine(TrailSpawner());
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
 
+    IEnumerator TrailSpawner()
+    {
+        while (movement.inDash)
+        {
+            yield return new WaitForSeconds(0.03f);
+            GetComponent<Attack>().Shot(ProjectileType.trail);
+            Debug.Log("DSSDFSDDSSDSD");
+        }
     }
 
     IEnumerator Animate(List<Sprite> sprites, float seconds)
