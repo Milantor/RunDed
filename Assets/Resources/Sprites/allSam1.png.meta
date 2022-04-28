@@ -516,6 +516,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Nigga
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 211
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55626bfdbdcd1c4459ece619e906ea58
+      internalID: -809197259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YO
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 249
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97c1c8c9967212418bc8c68b5660341
+      internalID: -937527300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -540,7 +582,9 @@ TextureImporter:
       20: -953690907
       40: 1335915390
       50: -1646864542
+      Nigga: -809197259
       80: 1056320444
+      YO: -937527300
       1: -1629564871
       wall01: -277439384
       7: -2022951013

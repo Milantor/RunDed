@@ -10,12 +10,16 @@ public class Visual : MonoBehaviour
     Movement movement; //ссылка на скрипт движения
     SpriteRenderer spriteRenderer;
 
-    int oldState;
+    int oldState = 1;
 
     [SerializeField]
     List<Sprite> walk;
     public bool isWalk;
     public int walkIndex;
+    public GameObject Weapon;
+    public Material m;
+    public Transform Point;
+    public Vector3 Difference;
 
     // Start is called before the first frame update
     void Start()
@@ -28,28 +32,28 @@ public class Visual : MonoBehaviour
             walk = new List<Sprite>();
             walkIndex = 0;
         }
-       //StartCoroutine(TrailSpawner());
+        //StartCoroutine(TrailSpawner());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - Weapon.transform.position;
+        float RotateZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg;
+        Weapon.transform.rotation = Quaternion.Slerp(Weapon.transform.rotation, Quaternion.Euler(0, 0, RotateZ), 0.5f);
     }
 
     IEnumerator TrailSpawner()
     {
         while (movement.inDash)
         {
-            yield return new WaitForSeconds(0.03f);
             GetComponent<Attack>().Shot(ProjectileType.trail);
-            Debug.Log("DSSDFSDDSSDSD");
+            yield return new WaitForSeconds(0.005f);
         }
     }
 
     IEnumerator Animate(List<Sprite> sprites, float seconds)
     {
-        Debug.Log("Coroutine started from coroutine");
         while (walkIndex < sprites.Count)
         {
             spriteRenderer.sprite = sprites[walkIndex];
@@ -67,36 +71,37 @@ public class Visual : MonoBehaviour
         {
             case > 0:
                 spriteRenderer.flipX = false;
-                if (oldState != 1)
-                {
-                    StopAllCoroutines();
-                    Debug.Log("Coroutine stopped");
-                    oldState = 1;
-                    if (!isWalk)
-                        StartCoroutine(Animate(walk, 0.1f));
-                    isWalk = true;
-                }
+                //Weapon.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+                //if (oldState != 1)
+                //{
+                //    Transform wpno = Weapon.transform;
+                //    wpno.localPosition = new Vector3(-Mathf.Abs(-wpno.localPosition.x), Mathf.Abs(wpno.localPosition.y), Mathf.Abs(wpno.localPosition.z));
+                //    Point.localPosition = new Vector3(Mathf.Abs(-Point.localPosition.x), Mathf.Abs(Point.localPosition.y), Mathf.Abs(Point.localPosition.z));
+                //    oldState = 1;
+                //}
+                StopAllCoroutines();
+                if (!isWalk)
+                    StartCoroutine(Animate(walk, 0.1f));
+                isWalk = true;
                 break;
             case < 0:
                 spriteRenderer.flipX = true;
-                if (oldState != -1)
-                {
-                    StopAllCoroutines();
-                    Debug.Log("Coroutine stopped");
-                    oldState = -1;
-                    if (!isWalk)
-                        StartCoroutine(Animate(walk, 0.1f));
-                    isWalk = true;
-                }
+                //Weapon.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+                //if (oldState != -1)
+                //{
+                //    Transform wpno = Weapon.transform;
+                //    wpno.localPosition = new Vector3(Mathf.Abs(-wpno.localPosition.x), Mathf.Abs(wpno.localPosition.y), Mathf.Abs(wpno.localPosition.z));
+                //    Point.localPosition = new Vector3(-Mathf.Abs(-Point.localPosition.x), Mathf.Abs(Point.localPosition.y), Mathf.Abs(Point.localPosition.z));
+                //    oldState = -1;
+                //}
+                StopAllCoroutines();
+                if (!isWalk)
+                    StartCoroutine(Animate(walk, 0.1f));
+                isWalk = true;
                 break;
             case 0:
-                if (oldState != 0)
-                {
                     StopAllCoroutines();
-                    Debug.Log("Coroutine stopped");
-                    oldState = 0;
                     isWalk = false;
-                }
                 break;
         }
     }
