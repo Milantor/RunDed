@@ -28,8 +28,8 @@ public class Attack : MonoBehaviour
     public bool isReloading;
     public float ReloadTime;
     Movement movement;
-    [SerializeField]
-    private AudioSource audioSource;
+    //[SerializeField]
+   // private AudioSource audioSource;
 
     private void Start()
     {
@@ -84,8 +84,8 @@ public class Attack : MonoBehaviour
 
     public void ShotGunShot(ProjectileType projectileType, float range, int projectilesCount)
     {
-        audioSource.pitch = Random.Range(0.75f, 0.9f);
-        audioSource.Play();
+        //audioSource.pitch = Random.Range(0.75f, 0.9f);
+        //audioSource.Play();
         for (int i = 0; i < projectilesCount; i++)
         {
             bulletRange = Random.Range(-range, range);
