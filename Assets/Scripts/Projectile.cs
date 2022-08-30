@@ -28,13 +28,22 @@ public class Projectile : MonoBehaviour
 
     public void SetParametres(ProjectileType projectileType)
     {
+        Sprite[] ss = Resources.LoadAll<Sprite>("Sprites/ForSamos12111");
         switch (projectileType)
         {
             case ProjectileType.ak74:
                 projectileSpeed = 910;
                 projectileLifeTime = 1;
                 projectileDamage = 1 * ((isAim == true) ? 1.3f : 1);
-                Sprite[] ss = Resources.LoadAll<Sprite>("Sprites/ForSamos12111");
+                GetComponent<SpriteRenderer>().sprite = ss.Single(s => s.name == "bul" /*"AK-74-P"*/);
+                //GetComponent<SpriteRenderer>().material = ded.GetComponent<Visual>().m;
+                StartCoroutine(KillProjectile(gameObject));
+                break;
+            case ProjectileType.shotgun:
+                projectileSpeed = 250;
+                projectileLifeTime = 0.5f;
+                projectileDamage = 1 * ((isAim == true) ? 1.3f : 1);
+                //Sprite[] ss = Resources.LoadAll<Sprite>("Sprites/ForSamos12111");
                 GetComponent<SpriteRenderer>().sprite = ss.Single(s => s.name == "bul" /*"AK-74-P"*/);
                 //GetComponent<SpriteRenderer>().material = ded.GetComponent<Visual>().m;
                 StartCoroutine(KillProjectile(gameObject));
@@ -60,12 +69,20 @@ public class Projectile : MonoBehaviour
             Destroy(projectile);
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Enemy"))
-    //    {
-    //        collision.gameObject.GetComponent<Enemy>().GetDamage(Damage);
-    //    }
-    //    Destroy(gameObject);
-    //}
+    private void OnCollisionEnter2D(Collision2D _c)
+    {
+        Debug.Log("F");
+        if (_c.gameObject.GetComponent<Stats>())
+        {
+            Debug.Log("DD");
+            Stats _s = _c.gameObject.GetComponent<Stats>();
+            if (_s.HP > projectileDamage)
+                Destroy(gameObject);
+            _s.ChangeHp(projectileDamage, StatsTools.Remove);
+        }
+        if (_c.gameObject.CompareTag("Floor"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

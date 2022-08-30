@@ -6,6 +6,7 @@ public enum ProjectileType
 {
     ak74,
     glok,
+    shotgun,
     trail
 }
 
@@ -27,6 +28,8 @@ public class Attack : MonoBehaviour
     public bool isReloading;
     public float ReloadTime;
     Movement movement;
+    [SerializeField]
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -56,7 +59,8 @@ public class Attack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(LongShot(ProjectileType.ak74, SPEEEED));
+            //StartCoroutine(LongShot(ProjectileType.ak74, SPEEEED));
+            ShotGunShot(ProjectileType.shotgun, 24, 15);
         }
         if (Input.GetKeyDown(KeyCode.R) && !isReloading && inGunBulletsCount < 30)
         {
@@ -78,6 +82,34 @@ public class Attack : MonoBehaviour
         #endregion
     }
 
+    public void ShotGunShot(ProjectileType projectileType, float range, int projectilesCount)
+    {
+        audioSource.pitch = Random.Range(0.75f, 0.9f);
+        audioSource.Play();
+        for (int i = 0; i < projectilesCount; i++)
+        {
+            bulletRange = Random.Range(-range, range);
+            GameObject _go = new GameObject();
+            _go.layer = 6;
+            SpriteRenderer _sr = _go.AddComponent<SpriteRenderer>();
+            Rigidbody2D _rb = _go.AddComponent<Rigidbody2D>();
+            Projectile _projectile = _go.AddComponent<Projectile>();
+            BoxCollider2D _c = _go.AddComponent<BoxCollider2D>();
+            _c.offset = new Vector2(1.25f, 0);
+            _c.size = new Vector2(4.5f, 1.5f);
+            _projectile.ChangeAim(BeutifulCamera.Aim);
+
+            _go.transform.position = weaponPoint.transform.position;
+            _sr.sortingLayerName = "SFX";
+            _projectile.ded = gameObject;
+            _projectile.SetParametres(projectileType);
+            _rb.gravityScale = 0;
+            _rb.AddForce((Camera.main.ScreenToWorldPoint(Input.mousePosition) - weapon.transform.position + new Vector3(0, bulletRange * bulletRangeModificator, 0)).normalized * _projectile.projectileSpeed, ForceMode2D.Impulse);
+            _go.transform.right = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - weapon.transform.position).normalized;
+            //_go.transform.rotation = Quaternion.Euler(_go.transform.rotation.z, 0, _go.transform.rotation.z);
+        }
+    }
+
     IEnumerator LongShot(ProjectileType projectileType, int rateOfFire)
     {
         while (Input.GetMouseButton(0) && inGunBulletsCount > 0)
@@ -94,9 +126,13 @@ public class Attack : MonoBehaviour
             bulletRange = Random.Range(-5, 5);
             #region Projectile spawn
             GameObject _go = new GameObject();
+            _go.layer = 6;
             SpriteRenderer _sr = _go.AddComponent<SpriteRenderer>();
             Rigidbody2D _rb = _go.AddComponent<Rigidbody2D>();
             Projectile _projectile = _go.AddComponent<Projectile>();
+            BoxCollider2D _c = _go.AddComponent<BoxCollider2D>();
+            _c.offset = new Vector2(1.25f, 0);
+            _c.size = new Vector2(4.5f, 1.5f);
             _projectile.ChangeAim(BeutifulCamera.Aim);
 
             _go.transform.position = weaponPoint.transform.position;
@@ -129,6 +165,7 @@ public class Attack : MonoBehaviour
     public void Shot(ProjectileType projectileType)
     {
         GameObject _go = new GameObject();
+        _go.name = projectileType.ToString();
         _go.transform.position = transform.position + new Vector3((movement.Hspeed > 0 ? -3f : 3f), 1.5f, 0);
         SpriteRenderer _sr = _go.AddComponent<SpriteRenderer>();
         _sr.sortingLayerName = "SFX";

@@ -3,16 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Floor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - PlayerProjectile
+  - EnemyProjectile
   - 
   - 
   - 
@@ -38,11 +39,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 1751361933
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: wall
-    uniqueID: 1751361933
     locked: 0
   - name: SFX
     uniqueID: 920489609

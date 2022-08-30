@@ -6,26 +6,29 @@ public class BeutifulCamera : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private float cameraSize;
     private new Camera camera;
     public float speed, xOffset, yOffset, zOffset;
     public bool Aim, oldAim;
-    Projectile Projectile;
+    private Projectile Projectile;
 
     private void Start()
     {
         camera = Camera.main;
         Projectile = GameObject.FindObjectOfType<Projectile>();
+        cameraSize = (cameraSize == 0) ? 6 : cameraSize;
     }
     void Update()
     {
         float x, y, z;
         if (Aim == false)
         {
-            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 48, speed + Time.deltaTime);
+            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, cameraSize, speed + Time.deltaTime);
         }
         else
         {
-            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 48 / 1.5f, speed + Time.deltaTime);
+            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, cameraSize / 1.5f, speed + Time.deltaTime);
         }
         oldAim = Aim;
         if (Aim == false)
