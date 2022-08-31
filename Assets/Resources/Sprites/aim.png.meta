@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,8 +70,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureFormat: 4
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,7 +119,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,7 +139,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      3: -1080553048
+      8: 1045744252
+      30: 1707624485
+      70: 755838922
+      2: 1522099061
+      6: -36416083
+      wall0: 218820101
+      Basic_Ded: -1008731287
+      4: -93710830
+      5: 1819345137
+      20: -953690907
+      40: 1335915390
+      50: -1646864542
+      Nigga: -809197259
+      80: 1056320444
+      YO: -937527300
+      1: -1629564871
+      wall01: -277439384
+      7: -2022951013
+      60: -1388536469
+      10: 81702219
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 

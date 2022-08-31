@@ -71,7 +71,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -118,8 +118,8 @@ TextureImporter:
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,70 +128,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: AK-74
-      rect:
-        serializedVersion: 2
-        x: 299
-        y: 195
-        width: 36
-        height: 9
-      alignment: 9
-      pivot: {x: -0, y: 0.6666667}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f315f6926855b5478ffad116fff00b8
-      internalID: 379116355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AK-74-P
-      rect:
-        serializedVersion: 2
-        x: 337
-        y: 201
-        width: 3
-        height: 1
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca5c95ff4b27a2a458917fa6f47c13f0
-      internalID: -1100304186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bul
-      rect:
-        serializedVersion: 2
-        x: 331
-        y: 210
-        width: 9
-        height: 3
-      alignment: 9
-      pivot: {x: 0.22222222, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7478430cefa00654da2009e2d22b1984
-      internalID: -2066304207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -203,9 +140,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      AK-74-P: -1100304186
-      AK-74: 379116355
-      bul: -2066304207
+      3: -1080553048
+      8: 1045744252
+      30: 1707624485
+      70: 755838922
+      2: 1522099061
+      6: -36416083
+      wall0: 218820101
+      Basic_Ded: -1008731287
+      4: -93710830
+      5: 1819345137
+      20: -953690907
+      40: 1335915390
+      50: -1646864542
+      Nigga: -809197259
+      80: 1056320444
+      YO: -937527300
+      1: -1629564871
+      wall01: -277439384
+      7: -2022951013
+      60: -1388536469
+      10: 81702219
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
