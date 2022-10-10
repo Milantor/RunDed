@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public float Hspeed; //скорость(горизонтальная)
     public float Vspeed; //скорость(вертикальная)
     public float speedModificator;
+    private float jumpSpeedModificator;
     public float VspeedModificator;
     public bool inDash;
     Rigidbody2D _rb;
@@ -23,6 +24,7 @@ public class Movement : MonoBehaviour
     {
         visual = GetComponent<Visual>();
         _rb = GetComponent<Rigidbody2D>();
+        jumpSpeedModificator = 1;
     }
 
     float oldhspeed = 0;
@@ -89,7 +91,11 @@ public class Movement : MonoBehaviour
         }
         #endregion
         #region MOOOVE
-        velocity += new Vector3(Hspeed * speedModificator * (useUnscaledTime == true ? Time.unscaledTime/20 : 1), 0, 0);
+        if (onGround)
+            jumpSpeedModificator = 1;
+        else
+            jumpSpeedModificator = 0.5f;
+        velocity += new Vector3(Hspeed * speedModificator * jumpSpeedModificator * (useUnscaledTime == true ? Time.unscaledTime/20 : 1), 0, 0);
         _rb.MovePosition(transform.position + velocity);
         if (Hspeed != oldhspeed)
         {
