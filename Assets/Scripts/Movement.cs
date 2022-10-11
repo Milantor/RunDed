@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
     Rigidbody2D _rb;
     private float runModificator;
     private bool isPressed100Ms;
+    private bool isRun;
 
 
     public bool onGround;
@@ -102,8 +103,10 @@ public class Movement : MonoBehaviour
         {
             if (isPressed100Ms)
             {
-                StartCoroutine(RunCheck());
+                StopCoroutine(RunCheck());
+                StartCoroutine(RunBuff());
                 runModificator = 2f;
+                isRun = true;
                 isPressed100Ms = false;
             }
             else
@@ -114,6 +117,7 @@ public class Movement : MonoBehaviour
         }
         if ((Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) && !isPressed100Ms)
         {
+            isRun = false;
             runModificator = 1f;
         }
         velocity += new Vector3(Hspeed * speedModificator * jumpSpeedModificator * runModificator * (useUnscaledTime == true ? Time.unscaledTime/20 : 1), 0, 0);
@@ -131,6 +135,16 @@ public class Movement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         isPressed100Ms = false;
+    }
+
+    IEnumerator RunBuff()
+    {
+        yield return new WaitForSeconds(0.4f);
+        if (isRun && runModificator < 2.9f)
+        {
+            runModificator += 0.2f;
+            StartCoroutine(RunBuff());
+        }
     }
 
     IEnumerator StopDash()
