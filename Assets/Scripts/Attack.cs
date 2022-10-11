@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    [SerializeField] private Transform SpawnPos;
+
     public int SelectedGun;
 
     [SerializeField] private Sprite pistolSprite;
@@ -63,6 +65,11 @@ public class Attack : MonoBehaviour
         SpriteRenderer _SR = _projectile.AddComponent<SpriteRenderer>();
         Rigidbody2D _rb = _projectile.AddComponent<Rigidbody2D>();
         _projectile.AddComponent<BoxCollider2D>();
+        _projectile.transform.position = SpawnPos.position;
+        _projectile.layer = 6;
         _SR.sprite = sprite;
+        _rb.gravityScale = 0f;
+
+        _rb.AddForce((Camera.main.ScreenToWorldPoint(Input.mousePosition) - _projectile.transform.position).normalized * speed, ForceMode2D.Impulse);
     }
 }
