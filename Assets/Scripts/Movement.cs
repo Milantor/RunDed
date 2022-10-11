@@ -16,6 +16,9 @@ public class Movement : MonoBehaviour
     public float VspeedModificator;
     public bool inDash;
     Rigidbody2D _rb;
+    private float runModificator;
+    private bool isPressed100Ms;
+
 
     public bool onGround;
 
@@ -95,7 +98,25 @@ public class Movement : MonoBehaviour
             jumpSpeedModificator = 1;
         else
             jumpSpeedModificator = 0.5f;
-        velocity += new Vector3(Hspeed * speedModificator * jumpSpeedModificator * (useUnscaledTime == true ? Time.unscaledTime/20 : 1), 0, 0);
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        {
+            if (isPressed100Ms)
+            {
+                StartCoroutine(RunCheck());
+                runModificator = 2f;
+                isPressed100Ms = false;
+            }
+            else
+            {
+                isPressed100Ms = true;
+                StartCoroutine(RunCheck());
+            }
+        }
+        if ((Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) && !isPressed100Ms)
+        {
+            runModificator = 1f;
+        }
+        velocity += new Vector3(Hspeed * speedModificator * jumpSpeedModificator * runModificator * (useUnscaledTime == true ? Time.unscaledTime/20 : 1), 0, 0);
         _rb.MovePosition(transform.position + velocity);
         if (Hspeed != oldhspeed)
         {
@@ -105,6 +126,13 @@ public class Movement : MonoBehaviour
         #endregion
         #endregion
     }
+
+    IEnumerator RunCheck()
+    {
+        yield return new WaitForSeconds(0.3f);
+        isPressed100Ms = false;
+    }
+
     IEnumerator StopDash()
     {
         yield return new WaitForSeconds(0.5f);

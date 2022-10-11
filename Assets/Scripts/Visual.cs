@@ -14,7 +14,7 @@ public class Visual : MonoBehaviour
 
     [SerializeField]
     List<Sprite> walk;
-    public bool isWalk;
+    private bool isWalk;
     public int walkIndex;
     public GameObject Weapon;
     public Material m;
@@ -42,6 +42,7 @@ public class Visual : MonoBehaviour
         float RotateZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg;
         Weapon.transform.rotation = Quaternion.Slerp(Weapon.transform.rotation, Quaternion.Euler(0, 0, RotateZ), 0.5f);
     }
+
 
     IEnumerator TrailSpawner()
     {
