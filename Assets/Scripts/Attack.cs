@@ -4,6 +4,10 @@ public class Attack : MonoBehaviour
 {
     public int SelectedGun;
 
+    [SerializeField] private Sprite pistolSprite;
+    [SerializeField] private int pistolDamage;
+    [SerializeField] private float pistolSpeed;
+
     void Start()
     {
 
@@ -13,7 +17,23 @@ public class Attack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-
+            Shot();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            SelectedGun = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SelectedGun = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SelectedGun = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SelectedGun = 3;
         }
     }
 
@@ -26,6 +46,7 @@ public class Attack : MonoBehaviour
                 break;
             case 1:
                 //pistol
+                SummonProjectile(pistolSprite, pistolDamage, pistolSpeed);
                 break;
             case 2:
                 //rifle
@@ -41,5 +62,7 @@ public class Attack : MonoBehaviour
         GameObject _projectile = new GameObject();
         SpriteRenderer _SR = _projectile.AddComponent<SpriteRenderer>();
         Rigidbody2D _rb = _projectile.AddComponent<Rigidbody2D>();
+        _projectile.AddComponent<BoxCollider2D>();
+        _SR.sprite = sprite;
     }
 }

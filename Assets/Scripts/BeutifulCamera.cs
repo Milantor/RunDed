@@ -11,12 +11,10 @@ public class BeutifulCamera : MonoBehaviour
     private new Camera camera;
     public float speed, xOffset, yOffset, zOffset;
     public bool Aim, oldAim;
-    private Projectile Projectile;
 
     private void Start()
     {
         camera = Camera.main;
-        Projectile = GameObject.FindObjectOfType<Projectile>();
         cameraSize = (cameraSize == 0) ? 6 : cameraSize;
     }
     void Update()

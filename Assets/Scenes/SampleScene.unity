@@ -1077,7 +1077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34556e03e8800fe4cb81bbac408d7704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletText: {fileID: 2119902967}
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,7 +1089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229e0403156c65d42a6c33f02360c1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadBar: {fileID: 1352474605}
 --- !u!1 &540868948
 GameObject:
   m_ObjectHideFlags: 0
@@ -3051,13 +3049,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1306345591}
   - component: {fileID: 1306345590}
-  - component: {fileID: 1306345592}
-  - component: {fileID: 1306345593}
-  - component: {fileID: 1306345594}
   - component: {fileID: 1306345595}
   - component: {fileID: 1306345596}
   - component: {fileID: 1306345597}
   - component: {fileID: 1306345598}
+  - component: {fileID: 1306345600}
+  - component: {fileID: 1306345599}
   m_Layer: 3
   m_Name: Basic_Ded
   m_TagString: Player
@@ -3133,73 +3130,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1306345592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306345589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b983d688284ae9844b61a0bdc907a254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useUnscaledTime: 0
-  testo: {fileID: 21300000, guid: 806d50048046f5b469fb89c969e30953, type: 3}
-  Hspeed: 0
-  Vspeed: 15
-  speedModificator: 0.1
-  VspeedModificator: 5
-  inDash: 0
-  onGround: 0
---- !u!114 &1306345593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306345589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6456279e464952a4684971d4c2141ed3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walk:
-  - {fileID: -1629564871, guid: 04f5f43db1f93e64a8b4f70d83bcea28, type: 3}
-  - {fileID: 1522099061, guid: 04f5f43db1f93e64a8b4f70d83bcea28, type: 3}
-  - {fileID: -1080553048, guid: 04f5f43db1f93e64a8b4f70d83bcea28, type: 3}
-  - {fileID: -93710830, guid: 04f5f43db1f93e64a8b4f70d83bcea28, type: 3}
-  - {fileID: 1819345137, guid: 04f5f43db1f93e64a8b4f70d83bcea28, type: 3}
-  - {fileID: -36416083, guid: 04f5f43db1f93e64a8b4f70d83bcea28, type: 3}
-  - {fileID: -2022951013, guid: 04f5f43db1f93e64a8b4f70d83bcea28, type: 3}
-  - {fileID: 1045744252, guid: 04f5f43db1f93e64a8b4f70d83bcea28, type: 3}
-  walkIndex: 0
-  Weapon: {fileID: 1126122707}
-  m: {fileID: 2100000, guid: 388c186d8ba94c24aa1728aeb09c5b81, type: 2}
-  Point: {fileID: 1289760374}
-  Difference: {x: 0, y: 0, z: 0}
---- !u!114 &1306345594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306345589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9654e5782bba6f479148a7c846a77e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HitPoint: 0
-  ProjectileType: 0
-  weaponPoint: {fileID: 1289760373}
-  SPEEEED: 600
-  weapon: {fileID: 1126122707}
-  bulletsCount: 1488228
-  inGunBulletsCount: 0
-  isReloading: 0
-  ReloadTime: 0
 --- !u!61 &1306345595
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3308,6 +3238,42 @@ CapsuleCollider2D:
   m_Size: {x: 9, y: 18}
   m_Direction: 0
 --- !u!114 &1306345598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306345589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b4b3de1fd852444bae1cefd9463ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useUnscaledTime: 0
+  testo: {fileID: 0}
+  Hspeed: 0
+  Vspeed: 12
+  speedModificator: 0.1
+  VspeedModificator: 1
+  inDash: 0
+  onGround: 0
+--- !u!114 &1306345599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306345589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e770328cdc3cbad4abbbb1f6d7b3914e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectedGun: 0
+  pistolSprite: {fileID: 0}
+  pistolDamage: 0
+  pistolSpeed: 0
+--- !u!114 &1306345600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

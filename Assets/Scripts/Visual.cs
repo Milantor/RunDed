@@ -36,22 +36,22 @@ public class Visual : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - Weapon.transform.position;
-        float RotateZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg;
-        Weapon.transform.rotation = Quaternion.Slerp(Weapon.transform.rotation, Quaternion.Euler(0, 0, RotateZ), 0.5f);
-    }
+    //void Update()
+    //{
+    //    Difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - Weapon.transform.position;
+    //    float RotateZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg;
+    //    Weapon.transform.rotation = Quaternion.Slerp(Weapon.transform.rotation, Quaternion.Euler(0, 0, RotateZ), 0.5f);
+    //}
 
 
-    IEnumerator TrailSpawner()
-    {
-        while (movement.inDash)
-        {
-            GetComponent<Attack>().Shot(ProjectileType.trail);
-            yield return new WaitForSeconds(0.005f);
-        }
-    }
+    //IEnumerator TrailSpawner()
+    //{
+    //    while (movement.inDash)
+    //    {
+    //     //   GetComponent<Attack>().Shot(ProjectileType.trail);
+    //        yield return new WaitForSeconds(0.005f);
+    //    }
+    //}
 
     IEnumerator Animate(List<Sprite> sprites, float seconds)
     {

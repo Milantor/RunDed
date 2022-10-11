@@ -64,11 +64,11 @@ public class Movement : MonoBehaviour
         {
             _rb.gravityScale = 3;
         }
-        else if(_rb.velocity.y == 0)
+        else if (_rb.velocity.y == 0)
         {
             _rb.gravityScale = 1;
         }
-        else 
+        else
         {
             _rb.gravityScale = 5;
         }
@@ -87,10 +87,10 @@ public class Movement : MonoBehaviour
         if ((Input.GetKeyUp(KeyCode.CapsLock) || Input.GetMouseButtonUp(2)) && !inDash)
         {
             speedModificator *= 2.5f;
-           // VspeedModificator *= 2;
+            // VspeedModificator *= 2;
             inDash = true;
-           // Camera.main.orthographicSize *= 1.2f;
-            StartCoroutine(StopDash()); 
+            // Camera.main.orthographicSize *= 1.2f;
+            StartCoroutine(StopDash());
             visual.StartCoroutine("TrailSpawner");
         }
         #endregion
@@ -120,11 +120,11 @@ public class Movement : MonoBehaviour
             isRun = false;
             runModificator = 1f;
         }
-        velocity += new Vector3(Hspeed * speedModificator * jumpSpeedModificator * runModificator * (useUnscaledTime == true ? Time.unscaledTime/20 : 1), 0, 0);
+        velocity += new Vector3(Hspeed * speedModificator * jumpSpeedModificator * runModificator * (useUnscaledTime == true ? Time.unscaledTime / 20 : 1), 0, 0);
         _rb.MovePosition(transform.position + velocity);
         if (Hspeed != oldhspeed)
         {
-            visual.SpeedChanged(Hspeed);
+          //  visual.SpeedChanged(Hspeed);
         }
         oldhspeed = Hspeed;
         #endregion
@@ -151,8 +151,8 @@ public class Movement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         speedModificator /= 2.5f;
-     //   VspeedModificator /= 2;
-       // Camera.main.orthographicSize /= 1.2f;
+        //   VspeedModificator /= 2;
+        // Camera.main.orthographicSize /= 1.2f;
         inDash = false;
     }
 
@@ -186,7 +186,7 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ( collision.collider.bounds.min.y <= GetComponent<BoxCollider2D>().bounds.max.y)
+        if (collision.collider.bounds.min.y <= GetComponent<BoxCollider2D>().bounds.max.y)
         {
             collisions.Add(collision);
             onGround = true;
