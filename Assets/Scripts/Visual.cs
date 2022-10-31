@@ -8,16 +8,18 @@ public class Visual : MonoBehaviour
 {
 
     public int walkState;
+    private int animIndex;
+    private Movement movement;
     [SerializeField] SpriteRenderer Weapon, Ded;
     [SerializeField] Sprite[] weaponSprites;
     [SerializeField] Sprite[] idleSprites;
     [SerializeField] Sprite[] walkSprites;
     [SerializeField] Sprite[] runSprites;
-    private int animIndex;
     
     public void Start()
     {
         Ded = GetComponent<SpriteRenderer>();
+        movement = GetComponent<Movement>();
         walkState = 1;
         StartCoroutine(WalkAnimate());
     }
@@ -25,6 +27,31 @@ public class Visual : MonoBehaviour
     {
         Sprite sprite = weaponSprites[GunIndex];
         Weapon.sprite = sprite;
+    }
+
+    float oldx;
+
+    private void Update()
+    {
+        float x = Input.GetAxis("Horizontal");
+        #region rotate
+        if (oldx != x)
+            XRotate(x);
+        oldx = x;
+        #endregion
+        if (movement.isRun)
+            walkState = 2;
+        else if (x != 0)
+            walkState = 1;
+        else walkState = 0;
+    }
+
+    public void XRotate(float x)
+    {
+        if (x < 0)
+            Ded.flipX = true;
+        if (x > 0)
+            Ded.flipX = false;
     }
 
     IEnumerator WalkAnimate()
@@ -36,6 +63,7 @@ public class Visual : MonoBehaviour
                 case 0: //idle
                     Ded.sprite = idleSprites[animIndex];
                     animIndex = (animIndex > 6) ? 0 : ++animIndex;
+                    Debug.Log("Suka shto ti kurish " + animIndex);
                     yield return new WaitForSeconds(0.25f);
                     break;
                 case 1: // walk
@@ -47,6 +75,7 @@ public class Visual : MonoBehaviour
                 case 2: // run
                     Ded.sprite = runSprites[animIndex];
                     animIndex = (animIndex > 6) ? 0 : ++animIndex;
+                    Debug.Log("Suka shto ti kurish " + animIndex);
                     yield return new WaitForSeconds(0.25f);
                     break;
             }

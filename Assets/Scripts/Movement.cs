@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     Rigidbody2D _rb;
     private float runModificator;
     private bool isPressed100Ms;
-    private bool isRun;
+    public bool isRun;
 
 
     public bool onGround;
