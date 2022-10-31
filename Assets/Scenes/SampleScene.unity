@@ -3109,6 +3109,7 @@ MonoBehaviour:
   speedModificator: 0.1
   VspeedModificator: 1
   inDash: 0
+  isRun: 0
   onGround: 0
 --- !u!114 &1306345599
 MonoBehaviour:
@@ -3166,7 +3167,15 @@ MonoBehaviour:
   - {fileID: -205934277, guid: 3f190acf0c80ba74a847ca4617fe2883, type: 3}
   - {fileID: 751087943, guid: 3f190acf0c80ba74a847ca4617fe2883, type: 3}
   - {fileID: 1534734758, guid: 3f190acf0c80ba74a847ca4617fe2883, type: 3}
-  idleSprites: []
+  idleSprites:
+  - {fileID: 1036369547, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1884185464, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 1036369547, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1884185464, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 1036369547, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1884185464, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 1036369547, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1884185464, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
   walkSprites:
   - {fileID: -1614016059, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
   - {fileID: 190773809, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
