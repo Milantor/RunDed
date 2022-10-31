@@ -310,6 +310,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: run 0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 613
+        width: 16
+        height: 36
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9191bf95c0b57884b9e375833a905a4a
+      internalID: 1147340277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run 1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 613
+        width: 16
+        height: 36
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc4812a60a7cf714ca1bd78112ea1748
+      internalID: -34709810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run 2
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 613
+        width: 16
+        height: 36
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2a89d4afd4b83f49978a8dc76e1e13f
+      internalID: -1070913220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run 3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 613
+        width: 16
+        height: 36
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a3bd94bceddfee429b1c25bbda80f59
+      internalID: -584862940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run 4
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 613
+        width: 16
+        height: 36
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e483a4c688735d34cb04d254becf269e
+      internalID: -1273199367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run 5
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 613
+        width: 16
+        height: 36
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4b98334b14a3444a799497a53950c5
+      internalID: 1527718147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run 6
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 613
+        width: 16
+        height: 36
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71faf10eb6587e43b627cb5beabb06b
+      internalID: -1884185464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run 7
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 613
+        width: 16
+        height: 36
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f33262579daa7284e9864150bc53453b
+      internalID: 329732359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -332,15 +500,21 @@ TextureImporter:
       60: -1388536469
       7: -2022951013
       walk 7: -351695032
+      run 5: 1527718147
       3: -1080553048
       8: 1045744252
       80: 1056320444
       40: 1335915390
+      run 2: -1070913220
       6: -36416083
       walk 3: 1481201140
+      run 1: -34709810
       50: -1646864542
       2: 1522099061
       30: 1707624485
+      run 6: -1884185464
+      run 7: 329732359
+      run 3: -584862940
       70: 755838922
       10: 81702219
       20: -953690907
@@ -348,7 +522,9 @@ TextureImporter:
       YO: -937527300
       walk 2: 172475623
       walk 4: 614074985
+      run 0: 1147340277
       Basic_Ded: -1008731287
+      run 4: -1273199367
       1: -1629564871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

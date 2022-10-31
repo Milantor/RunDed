@@ -91,7 +91,7 @@ public class Movement : MonoBehaviour
             inDash = true;
             // Camera.main.orthographicSize *= 1.2f;
             StartCoroutine(StopDash());
-            visual.StartCoroutine("TrailSpawner");
+          //  visual.StartCoroutine("TrailSpawner");
         }
         #endregion
         #region MOOOVE
