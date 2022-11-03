@@ -19,6 +19,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private Sprite gunSprite;
     [SerializeField] private int gunDamage;
     [SerializeField] private float gunSpeed;
+    [SerializeField] private float gunRange;
 
     private bool rifleJJ;
 
@@ -29,6 +30,7 @@ public class Attack : MonoBehaviour
 
     void Update()
     {
+        SpawnPos.transform.position = transform.position + new Vector3(0, 1);
         if (Input.GetMouseButtonDown(0))
         {
             Shot();
@@ -83,6 +85,10 @@ public class Attack : MonoBehaviour
                 break;
             case 3:
                 //gunshot
+                for (int i = 0; i < 10; i++)
+                {
+                SummonProjectile(gunSprite, gunDamage, gunSpeed, gunRange);
+                }
                 break;
         }
     }
@@ -97,7 +103,7 @@ public class Attack : MonoBehaviour
         yield return null;
     }
 
-    public void SummonProjectile(Sprite sprite, int damage, float speed)
+    public void SummonProjectile(Sprite sprite, int damage, float speed, float ranger = 0)
     {
         GameObject _projectile = new GameObject();
         SpriteRenderer _SR = _projectile.AddComponent<SpriteRenderer>();
@@ -105,10 +111,16 @@ public class Attack : MonoBehaviour
         _projectile.AddComponent<BoxCollider2D>();
         _projectile.AddComponent<SelfDestroyer>();
         _projectile.transform.position = SpawnPos.position;
+        Vector2 lookDir = (SelectedGun == 3) ?
+            (Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(Random.Range((1 - ranger), 1 + ranger), Random.Range((1 - ranger), 1 + ranger)) - _projectile.transform.position)
+            :
+            (Camera.main.ScreenToWorldPoint(Input.mousePosition) - _projectile.transform.position);
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        _projectile.transform.localEulerAngles = new Vector3(0, 0, angle);
         _projectile.layer = 6;
         _SR.sprite = sprite;
         _rb.gravityScale = 0f;
-
-        _rb.AddForce((Camera.main.ScreenToWorldPoint(Input.mousePosition) - _projectile.transform.position).normalized * speed * 25f, ForceMode2D.Impulse);
+      //  Vector2 strangeVector = (new Vector2(Random.Range((1 - ranger), 1 + ranger), Random.Range((1 - ranger), 1 + ranger)) + lookDir);
+        _rb.AddForce(lookDir/lookDir.magnitude * speed * 25f, ForceMode2D.Impulse);
     }
 }
