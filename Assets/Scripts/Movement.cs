@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     private float runModificator;
     private bool isPressed100Ms;
     public bool isRun;
-
+    public bool isCrought, isLayed;
 
     public bool onGround;
 
@@ -129,6 +129,22 @@ public class Movement : MonoBehaviour
         oldhspeed = Hspeed;
         #endregion
         #endregion
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (isCrought == true)
+            {
+                isLayed = true;
+                isCrought = false;
+            }
+            else if (!isLayed)
+            {
+                isCrought = true;
+            }
+            else
+            {
+                isLayed = false;
+            }
+        }
     }
 
     IEnumerator RunCheck()
