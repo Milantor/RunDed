@@ -34,15 +34,40 @@ public class Attack : MonoBehaviour
     {
         if (movement.isLayed)
         {
-            SpawnPos.transform.position = transform.position + lay;
+            if (!movement.GetComponent<SpriteRenderer>().flipX)
+            {
+                SpawnPos.transform.position = transform.position + lay;
+            }
+            else
+            {
+                SpawnPos.transform.position = transform.position + new Vector3(-lay.x, lay.y);
+            }
         }
         else if (movement.isCrought)
         {
-            SpawnPos.transform.position = transform.position + cr;
+            if (!movement.GetComponent<SpriteRenderer>().flipX)
+            {
+                SpawnPos.transform.position = transform.position + cr;
+            }
+            else
+            {
+                SpawnPos.transform.position = transform.position + new Vector3(-cr.x, cr.y);
+            }
         }
         else
         {
             SpawnPos.transform.position = transform.position + normal;
+        }
+        Vector2 Direction = Input.mousePosition - Camera.main.WorldToScreenPoint(SpawnPos.position);
+        float Angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
+        SpawnPos.rotation = Quaternion.AngleAxis(Angle, Vector3.forward);
+        if(Input.mousePosition.x - Camera.main.WorldToScreenPoint(SpawnPos.position).x < 0)
+        {
+            SpawnPos.GetComponentInChildren<SpriteRenderer>().flipY = true;
+        }
+        else
+        {
+            SpawnPos.GetComponentInChildren<SpriteRenderer>().flipY = false;
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -110,7 +135,7 @@ public class Attack : MonoBehaviour
     {
         while (rifleJJ)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.13f + Random.Range(-0.05f, 0.05f));
             Shot();
         }
         yield return null;
@@ -134,6 +159,6 @@ public class Attack : MonoBehaviour
         _SR.sprite = sprite;
         _rb.gravityScale = 0f;
         //  Vector2 strangeVector = (new Vector2(Random.Range((1 - ranger), 1 + ranger), Random.Range((1 - ranger), 1 + ranger)) + lookDir);
-        _rb.AddForce(lookDir / lookDir.magnitude * speed * 25f, ForceMode2D.Impulse);
+        _rb.AddForce(lookDir / lookDir.magnitude * speed * 25f * Random.Range(0.9f,1.1f), ForceMode2D.Impulse);
     }
 }

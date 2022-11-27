@@ -3108,7 +3108,7 @@ MonoBehaviour:
   pistolSpeed: 2
   rifleSprite: {fileID: 949281724, guid: 3f190acf0c80ba74a847ca4617fe2883, type: 3}
   rifleDamage: 1
-  rifleSpeed: 3
+  rifleSpeed: 1.5
   gunSprite: {fileID: 949281724, guid: 3f190acf0c80ba74a847ca4617fe2883, type: 3}
   gunDamage: 5
   gunSpeed: 1
@@ -3300,7 +3300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379987975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.105, y: -0.17, z: 0}
+  m_LocalPosition: {x: 0.105, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
