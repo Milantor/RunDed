@@ -17,6 +17,7 @@ public class Visual : MonoBehaviour
     [SerializeField] Sprite[] walkSprites, layWalkSprites, crWalkSprites;
     [SerializeField] Sprite[] runSprites;
     [SerializeField] Sprite[] toCr, toLay;
+    [SerializeField] private float toAnimTime;
 
     public void Start()
     {
@@ -24,6 +25,7 @@ public class Visual : MonoBehaviour
         movement = GetComponent<Movement>();
         walkState = 1;
         AutoWalk = true;
+        Weapon.sprite = null;
         StartCoroutine(WalkAnimate());
     }
     public void ChangeWeaponSprite(int GunIndex)
@@ -72,7 +74,7 @@ public class Visual : MonoBehaviour
         {
             Ded.sprite = toCr[state];
             state++;
-            yield return new WaitForSeconds(0.2f / toCr.Length);
+            yield return new WaitForSeconds(toAnimTime / toCr.Length);
         }
         AutoWalk = true;
         StopCoroutine(Cr());
@@ -93,7 +95,7 @@ public class Visual : MonoBehaviour
         {
             Ded.sprite = toLay[state];
             state++;
-            yield return new WaitForSeconds(0.2f / toLay.Length);
+            yield return new WaitForSeconds(toAnimTime / toLay.Length);
         }
         AutoWalk = true;
         StopCoroutine(Lay());
@@ -198,7 +200,7 @@ public class Visual : MonoBehaviour
                 }
             }
             else
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(toAnimTime);
         }
     }
 }

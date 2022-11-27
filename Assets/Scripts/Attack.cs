@@ -5,7 +5,8 @@ public class Attack : MonoBehaviour
 {
     [SerializeField] private Transform SpawnPos;
     private Visual visual;
-
+    private Movement movement;
+    [SerializeField] Vector3 normal, cr, lay;
     public int SelectedGun;
     [Header("Pistol")]
     [SerializeField] private Sprite pistolSprite;
@@ -26,11 +27,23 @@ public class Attack : MonoBehaviour
     void Start()
     {
         visual = FindObjectOfType<Visual>();
+        movement = FindObjectOfType<Movement>();
     }
 
     void Update()
     {
-        SpawnPos.transform.position = transform.position + new Vector3(0, 1);
+        if (movement.isLayed)
+        {
+            SpawnPos.transform.position = transform.position + lay;
+        }
+        else if (movement.isCrought)
+        {
+            SpawnPos.transform.position = transform.position + cr;
+        }
+        else
+        {
+            SpawnPos.transform.position = transform.position + normal;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Shot();
@@ -41,7 +54,7 @@ public class Attack : MonoBehaviour
                 StartCoroutine(RifleShot());
             }
         }
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             rifleJJ = false;
         }
@@ -87,7 +100,7 @@ public class Attack : MonoBehaviour
                 //gunshot
                 for (int i = 0; i < 10; i++)
                 {
-                SummonProjectile(gunSprite, gunDamage, gunSpeed, gunRange);
+                    SummonProjectile(gunSprite, gunDamage, gunSpeed, gunRange);
                 }
                 break;
         }
@@ -120,7 +133,7 @@ public class Attack : MonoBehaviour
         _projectile.layer = 6;
         _SR.sprite = sprite;
         _rb.gravityScale = 0f;
-      //  Vector2 strangeVector = (new Vector2(Random.Range((1 - ranger), 1 + ranger), Random.Range((1 - ranger), 1 + ranger)) + lookDir);
-        _rb.AddForce(lookDir/lookDir.magnitude * speed * 25f, ForceMode2D.Impulse);
+        //  Vector2 strangeVector = (new Vector2(Random.Range((1 - ranger), 1 + ranger), Random.Range((1 - ranger), 1 + ranger)) + lookDir);
+        _rb.AddForce(lookDir / lookDir.magnitude * speed * 25f, ForceMode2D.Impulse);
     }
 }
