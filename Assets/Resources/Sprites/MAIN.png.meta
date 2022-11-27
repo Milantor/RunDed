@@ -478,6 +478,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: idle
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 694
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b554d41066d0bce41a7f75323c6a8b18
+      internalID: 1882010103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 695
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3870186afd58b44eaed87b817fcbd21
+      internalID: 1724952289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -493,9 +535,11 @@ TextureImporter:
       walk 1: 190773809
       walk 5: 1523503134
       wall01: -277439384
+      idle+: 1724952289
       walk 0: -1614016059
       5: 1819345137
       walk 6: 1036369547
+      idle: 1882010103
       4: -93710830
       60: -1388536469
       7: -2022951013
