@@ -479,11 +479,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle
+      name: Idle
       rect:
         serializedVersion: 2
-        x: 20
-        y: 694
+        x: 30
+        y: 690
         width: 16
         height: 36
       alignment: 7
@@ -493,18 +493,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b554d41066d0bce41a7f75323c6a8b18
-      internalID: 1882010103
+      spriteID: f19128df81da8844c8d87c0634b2dc5d
+      internalID: -1327704988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle+
+      name: Idle+
       rect:
         serializedVersion: 2
-        x: 20
-        y: 695
+        x: 30
+        y: 691
         width: 16
         height: 36
       alignment: 7
@@ -514,8 +514,491 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3870186afd58b44eaed87b817fcbd21
-      internalID: 1724952289
+      spriteID: 9f111db7160cfa947b922e568e8d000e
+      internalID: 879306639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toLay 0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 318
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97913cb527d3fa42bc2907e087723fd
+      internalID: 957963099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toLay 1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 318
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b653a51d86e2da24a8d771604409ac96
+      internalID: 1242028121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toLay 2
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 318
+        width: 28
+        height: 24
+      alignment: 9
+      pivot: {x: 0.21428573, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e55830f3a319554790664b7a451c1a5
+      internalID: -64460505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toLay 3
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 318
+        width: 36
+        height: 18
+      alignment: 9
+      pivot: {x: 0.22222222, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a498ad4ca2d1c6488fb240658b8a84f
+      internalID: -1816510975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleLay
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 318
+        width: 36
+        height: 16
+      alignment: 9
+      pivot: {x: 0.19444445, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59fe1be3d3768564c99bef30563a26e6
+      internalID: 600538949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laywalk 0
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 318
+        width: 38
+        height: 16
+      alignment: 9
+      pivot: {x: 0.18421052, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10eb8223177520f4dadd0384ee70a154
+      internalID: -1565949309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laywalk 1
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 318
+        width: 38
+        height: 16
+      alignment: 9
+      pivot: {x: 0.18421052, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9626d0a2c282df74589413ccbe74caed
+      internalID: -743908149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laywalk 2
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 318
+        width: 42
+        height: 16
+      alignment: 9
+      pivot: {x: 0.1904762, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5134632292b706428c0ecc57e5020b8
+      internalID: 1352575613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laywalk 3
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 318
+        width: 40
+        height: 16
+      alignment: 9
+      pivot: {x: 0.175, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ef15b97f575d44fae88d9a305a567c
+      internalID: -1574358684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laywalk 4
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 318
+        width: 36
+        height: 16
+      alignment: 9
+      pivot: {x: 0.19444445, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c07ae175203af2b4180801a1c814a5b7
+      internalID: -1817484841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laywalk 5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 318
+        width: 36
+        height: 16
+      alignment: 9
+      pivot: {x: 0.19444445, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2666c88a813fe4e8d279e2128e21fd
+      internalID: -2039662497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleLay+
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 319
+        width: 36
+        height: 16
+      alignment: 9
+      pivot: {x: 0.19444445, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c6a7a9838c33346ad58a50a7db4369
+      internalID: 2044811449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToCr 0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 526
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60e115a898794d5438da27e16617629a
+      internalID: 677118814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToCr 1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 526
+        width: 20
+        height: 34
+      alignment: 9
+      pivot: {x: 0.4, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b918054598a0c624f8a288c18227ff32
+      internalID: 956545973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToCr 2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 526
+        width: 22
+        height: 30
+      alignment: 9
+      pivot: {x: 0.40909094, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad714318581f4245a1ddd7838b8111f
+      internalID: 1458597777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToCr 3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 526
+        width: 26
+        height: 24
+      alignment: 9
+      pivot: {x: 0.4615385, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7975fc39d1fefd64fac6a781f45476cb
+      internalID: 2075912722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cr 0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 494
+        width: 26
+        height: 24
+      alignment: 9
+      pivot: {x: 0.4615385, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b993952332d48c0418b0617e4a8c79aa
+      internalID: -1336091571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleCr
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 495
+        width: 26
+        height: 24
+      alignment: 9
+      pivot: {x: 0.4615385, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8f8ca53d02e9d418dd755c5210603d
+      internalID: -2145089240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cr 1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 494
+        width: 26
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6636fcfb29dbc9942b803e8424c33659
+      internalID: -1300583580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cr 2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 494
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.4615385, y: 0.041666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a3afb75b054a74986aef750108d39d
+      internalID: -1987078235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cr 3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 494
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.23076925, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1222e5c927b28e468e3259b0009dd9c
+      internalID: -386359522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cr 4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 494
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.4166667, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825d34e51c9ef334f94041a979464e64
+      internalID: -1954035019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cr 5
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 494
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.4166667, y: 0.041666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73a643722ed47c42b463eeea15a669f
+      internalID: 1697664276
       vertices: []
       indices: 
       edges: []
@@ -531,44 +1014,69 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Nigga: -809197259
-      walk 1: 190773809
-      walk 5: 1523503134
+      Cr 0: -1336091571
       wall01: -277439384
-      idle+: 1724952289
-      walk 0: -1614016059
-      5: 1819345137
-      walk 6: 1036369547
+      toLay 0: 957963099
       idle: 1882010103
-      4: -93710830
       60: -1388536469
       7: -2022951013
       walk 7: -351695032
+      Cr 4: -1954035019
       run 5: 1527718147
       3: -1080553048
       8: 1045744252
-      80: 1056320444
+      IdleLay+: 2044811449
+      toLay 2: -64460505
       40: 1335915390
-      run 2: -1070913220
+      Cr 1: -1300583580
       6: -36416083
-      walk 3: 1481201140
-      run 1: -34709810
+      Laywalk 1: -743908149
       50: -1646864542
       2: 1522099061
-      30: 1707624485
+      Laywalk 3: -1574358684
+      Laywalk 4: -1817484841
+      ToCr 1: 956545973
+      Cr 5: 1697664276
       run 6: -1884185464
-      run 7: 329732359
       run 3: -584862940
-      70: 755838922
-      10: 81702219
-      20: -953690907
+      ToCr 2: 1458597777
+      ToCr 3: 2075912722
       wall0: 218820101
-      YO: -937527300
-      walk 2: 172475623
       walk 4: 614074985
       run 0: 1147340277
       Basic_Ded: -1008731287
       run 4: -1273199367
+      Nigga: -809197259
+      walk 1: 190773809
+      walk 5: 1523503134
+      IdleCr: -2145089240
+      idle+: 1724952289
+      walk 0: -1614016059
+      5: 1819345137
+      walk 6: 1036369547
+      Cr 3: -386359522
+      4: -93710830
+      Laywalk 0: -1565949309
+      toLay 3: -1816510975
+      80: 1056320444
+      toLay 1: 1242028121
+      run 2: -1070913220
+      walk 3: 1481201140
+      run 1: -34709810
+      Idle+: 879306639
+      ToCr 0: 677118814
+      30: 1707624485
+      Laywalk 5: -2039662497
+      run 7: 329732359
+      Laywalk 2: 1352575613
+      70: 755838922
+      10: 81702219
+      20: -953690907
+      Idle: -1327704988
+      IdleLay: 600538949
+      Cr 2: -1987078235
+      YO: -937527300
+      walk 2: 172475623
       1: -1629564871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

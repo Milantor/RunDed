@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     public bool inDash;
     Rigidbody2D _rb;
     private float runModificator;
+    private float layModificator = 1f;
     private bool isPressed100Ms;
     public bool isRun;
     public bool isCrought, isLayed;
@@ -35,6 +36,10 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         #region basic move
         Vector3 velocity = Vector3.zero;
         #region Horizontal
@@ -120,7 +125,7 @@ public class Movement : MonoBehaviour
             isRun = false;
             runModificator = 1f;
         }
-        velocity += new Vector3(Hspeed * speedModificator * jumpSpeedModificator * runModificator * (useUnscaledTime == true ? Time.unscaledTime / 20 : 1), 0, 0);
+        velocity += new Vector3(Hspeed * speedModificator * jumpSpeedModificator * layModificator * runModificator * (useUnscaledTime == true ? Time.unscaledTime / 20 : 1), 0, 0);
         _rb.MovePosition(transform.position + velocity);
         if (Hspeed != oldhspeed)
         {
@@ -135,14 +140,19 @@ public class Movement : MonoBehaviour
             {
                 isLayed = true;
                 isCrought = false;
+                layModificator = 0.3f;
+                visual.ToLay();
             }
             else if (!isLayed)
             {
                 isCrought = true;
+                layModificator = 0.5f;
+                visual.ToCr();
             }
             else
             {
                 isLayed = false;
+                layModificator = 1f;
             }
         }
     }

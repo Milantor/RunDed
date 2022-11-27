@@ -3161,6 +3161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6456279e464952a4684971d4c2141ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutoWalk: 0
   walkState: 0
   Weapon: {fileID: 1379987977}
   Ded: {fileID: 1306345590}
@@ -3170,14 +3171,14 @@ MonoBehaviour:
   - {fileID: 751087943, guid: 3f190acf0c80ba74a847ca4617fe2883, type: 3}
   - {fileID: 1534734758, guid: 3f190acf0c80ba74a847ca4617fe2883, type: 3}
   idleSprites:
-  - {fileID: 1882010103, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
-  - {fileID: 1724952289, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
-  - {fileID: 1882010103, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
-  - {fileID: 1724952289, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
-  - {fileID: 1882010103, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
-  - {fileID: 1724952289, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
-  - {fileID: 1882010103, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
-  - {fileID: 1724952289, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1327704988, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 879306639, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  layIdleSprites:
+  - {fileID: 600538949, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 2044811449, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  crIdleSprites:
+  - {fileID: -1336091571, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -2145089240, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
   walkSprites:
   - {fileID: -1614016059, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
   - {fileID: 190773809, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
@@ -3187,6 +3188,20 @@ MonoBehaviour:
   - {fileID: 1523503134, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
   - {fileID: 1036369547, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
   - {fileID: -351695032, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  layWalkSprites:
+  - {fileID: -1565949309, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -743908149, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 1352575613, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1574358684, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1817484841, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -2039662497, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  crWalkSprites:
+  - {fileID: -1336091571, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1300583580, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1987078235, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -386359522, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1954035019, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 1697664276, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
   runSprites:
   - {fileID: 1147340277, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
   - {fileID: -34709810, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
@@ -3196,6 +3211,16 @@ MonoBehaviour:
   - {fileID: 1527718147, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
   - {fileID: -1884185464, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
   - {fileID: 329732359, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  toCr:
+  - {fileID: 677118814, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 956545973, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 1458597777, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 2075912722, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  toLay:
+  - {fileID: 957963099, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: 1242028121, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -64460505, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
+  - {fileID: -1816510975, guid: af50a13df2a8f05438a92379413e41aa, type: 3}
 --- !u!1 &1352474603
 GameObject:
   m_ObjectHideFlags: 0
