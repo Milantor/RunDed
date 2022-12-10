@@ -149,8 +149,10 @@ public class Attack : MonoBehaviour
         _projectile.AddComponent<BoxCollider2D>();
         _projectile.AddComponent<SelfDestroyer>();
         _projectile.transform.position = SpawnPos.position;
+        Vector3 vector3 = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - _projectile.transform.position).normalized;
         Vector2 lookDir = (SelectedGun == 3) ?
-            (Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(Random.Range((1 - ranger), 1 + ranger), Random.Range((1 - ranger), 1 + ranger)) - _projectile.transform.position)
+            //(Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(Random.Range((1 - ranger), 1 + ranger), Random.Range((1 - ranger), 1 + ranger)).normalized - _projectile.transform.position)
+            new Vector3 (vector3.x * (1+Random.Range(1 - ranger, 1 + ranger)), vector3.y * (1+Random.Range(1 - ranger, 1 + ranger)))
             :
             (Camera.main.ScreenToWorldPoint(Input.mousePosition) - _projectile.transform.position);
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
@@ -159,6 +161,6 @@ public class Attack : MonoBehaviour
         _SR.sprite = sprite;
         _rb.gravityScale = 0f;
         //  Vector2 strangeVector = (new Vector2(Random.Range((1 - ranger), 1 + ranger), Random.Range((1 - ranger), 1 + ranger)) + lookDir);
-        _rb.AddForce(lookDir / lookDir.magnitude * speed * 25f * Random.Range(0.9f,1.1f), ForceMode2D.Impulse);
+        _rb.AddForce(lookDir.normalized * speed * 25f * Random.Range(0.9f,1.1f), ForceMode2D.Impulse);
     }
 }

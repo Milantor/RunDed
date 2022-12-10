@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Item
 {
+    public Sprite _sprite;
+    private int _count;
+    public int Count { get => _count;}
 
 }
