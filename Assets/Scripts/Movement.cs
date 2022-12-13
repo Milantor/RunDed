@@ -96,7 +96,7 @@ public class Movement : MonoBehaviour
             inDash = true;
             // Camera.main.orthographicSize *= 1.2f;
             StartCoroutine(StopDash());
-          //  visual.StartCoroutine("TrailSpawner");
+            //  visual.StartCoroutine("TrailSpawner");
         }
         #endregion
         #region MOOOVE
@@ -125,11 +125,11 @@ public class Movement : MonoBehaviour
             isRun = false;
             runModificator = 1f;
         }
-        velocity += new Vector3(Hspeed * speedModificator * jumpSpeedModificator * layModificator * runModificator * (useUnscaledTime == true ? Time.unscaledTime / 20 : 1), 0, 0);
+        velocity += new Vector3(Hspeed * speedModificator /* jumpSpeedModificator */* layModificator * runModificator * (useUnscaledTime == true ? Time.unscaledTime / 20 : 1), 0, 0);
         _rb.MovePosition(transform.position + velocity);
         if (Hspeed != oldhspeed)
         {
-          //  visual.SpeedChanged(Hspeed);
+            //  visual.SpeedChanged(Hspeed);
         }
         oldhspeed = Hspeed;
         #endregion
