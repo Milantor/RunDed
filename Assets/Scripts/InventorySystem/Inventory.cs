@@ -9,14 +9,11 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject childPrefab;
     [SerializeField] InventoryCell[] cells;
     public static Inventory _instance;
-    [Space(30)]
-    [Header("Test")]
-    [SerializeField] int CID;
-    [SerializeField] string IID;
-    [SerializeField] Sprite II;
 
     private void Start()
     {
+        if (_instance != null)
+            Debug.LogError("WATAFUKA? >1 Inventory.cs script ons scene? AWFUL");
         _instance = this;
         int i = 0;
         foreach(InventoryCell cell in cells)
@@ -66,9 +63,9 @@ public class Inventory : MonoBehaviour
     /// <param name="CellId">ID Клетки с предметом</param>
     /// <param name="ItemId">ID Нового предмета</param>
     /// <param name="ItemIcon">Иконка предмета</param>
-    public void ChangeItemInCell()
+    public void ChangeItemInCell(int CID, string IID)
     {
-        GetCellById(CID).item = new Item(IID, II);
+        GetCellById(CID).item = new Item(IID);
         GetCellById(CID).UpdateCell();
     }
 

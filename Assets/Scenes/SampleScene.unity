@@ -3533,6 +3533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d715664d9c197ce4ea028ac7c4baf85d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CellId: 8
+  ItemId: APPLE
 --- !u!4 &644093784
 Transform:
   m_ObjectHideFlags: 0
@@ -3608,9 +3610,6 @@ MonoBehaviour:
   - {fileID: 1946485415}
   - {fileID: 2089217446}
   - {fileID: 554846979}
-  CID: 0
-  IID: 
-  II: {fileID: 0}
 --- !u!1 &644317860
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public static class ItemIcons
             Sprites.Add(sprite.name, sprite);
         }
         icons.Add("apple", Sprites["apple"]);
-        icons.Add("none", Sprites["empty"]);
+        icons.Add("empty", Sprites["empty"]);
     }
 
 }

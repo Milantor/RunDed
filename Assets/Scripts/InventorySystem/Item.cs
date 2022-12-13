@@ -27,20 +27,9 @@ public class Item
     /// Конструктор класса <see cref="Item"/>
     /// </summary>
     /// <param name="_ID">ID предмета, даёт понять какой это именно тип предмета</param>
-    public Item(string _ID = "none")
+    public Item(string _ID = "NONE")
     {
-        ID = _ID;
-        sprite = null;
+        ID = ItemIds.ids[_ID];
+        sprite = ItemIcons.icons[ID];
     }
-    /// <summary>
-    /// Конструктор класса <see cref="Item"/>
-    /// </summary>
-    /// <param name="_ID">ID предмета, даёт понять какой это именно тип предмета</param>
-    /// <param name="_sprite">Спрайт иконки</param>
-    public Item(string _ID, Sprite _sprite = null)
-    {
-        ID = _ID;
-        sprite = _sprite;
-    }
-
 }

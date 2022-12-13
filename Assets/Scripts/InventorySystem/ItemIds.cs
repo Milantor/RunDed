@@ -6,11 +6,13 @@ public static class ItemIds
 {
     public static Dictionary<string, string> ids = new Dictionary<string, string>();
 
-    public const string RIFLE = "RD:ak74";
+    public const string NONE = "empty";
+    public const string APPLE = "apple";
 
     public static void Start()
     {
-        ids.Add("RIFLE", RIFLE);
+        ids.Add("NONE", NONE);
+        ids.Add("APPLE", APPLE);
     }
 
 }
