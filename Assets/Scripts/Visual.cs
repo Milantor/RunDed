@@ -136,7 +136,7 @@ public class Visual : MonoBehaviour
                             mainCount = idleSprites.Length;
                         }
                         animIndex = (animIndex > (mainCount - 2)) ? 0 : ++animIndex;
-                        Debug.Log("Suka shto ti kurish " + animIndex);
+                     //   Debug.Log("Suka shto ti kurish " + animIndex);
                         yield return new WaitForSeconds(0.25f);
                         break;
                     case 1: // walk
@@ -165,7 +165,7 @@ public class Visual : MonoBehaviour
                             mainCount = walkSprites.Length;
                         }
                         animIndex = (animIndex > mainCount - 2) ? 0 : ++animIndex;
-                        Debug.Log("Suka shto ti kurish " + animIndex);
+                       // Debug.Log("Suka shto ti kurish " + animIndex);
                         yield return new WaitForSeconds(0.25f);
                         break;
                     case 2: // run
@@ -194,7 +194,7 @@ public class Visual : MonoBehaviour
                             mainCount = runSprites.Length;
                         }
                         animIndex = (animIndex > mainCount - 2) ? 0 : ++animIndex;
-                        Debug.Log("Suka shto ti kurish " + animIndex);
+                       // Debug.Log("Suka shto ti kurish " + animIndex);
                         yield return new WaitForSeconds(0.25f);
                         break;
                 }
