@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,8 +23,16 @@ public class DraDr : MonoBehaviour
         {
             Inventory._instance.SwapCells(obj, cell);
             Debug.Log("Swapped! " + obj.ID + "&" + cell.ID);
+            cell.GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f, 1f);
+            StartCoroutine(revertColor(cell));
             obj.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
             obj = null;
         }
+    }
+
+    IEnumerator revertColor(InventoryCell _cell)
+    {
+        yield return new WaitForSeconds(0.1f);
+        _cell.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
     }
 }
