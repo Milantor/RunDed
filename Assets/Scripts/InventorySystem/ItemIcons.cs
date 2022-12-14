@@ -12,10 +12,16 @@ public static class ItemIcons
     {
         foreach (Sprite sprite in sprites)
         {
-            Sprites.Add(sprite.name, sprite);
+            if (!Sprites.ContainsKey(sprite.name))
+                Sprites.Add(sprite.name, sprite);
         }
-        icons.Add("apple", Sprites["apple"]);
-        icons.Add("empty", Sprites["empty"]);
+        if (!icons.ContainsKey("apple"))
+            icons.Add("apple", Sprites["apple"]);
+        if (!icons.ContainsKey("empty"))
+            icons.Add("empty", Sprites["empty"]);
+        if (!icons.ContainsKey("fish"))
+            icons.Add("fish", Sprites["fish"]);
+        if (!icons.ContainsKey("stone"))
+            icons.Add("stone", Sprites["stone"]);
     }
-
 }

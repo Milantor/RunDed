@@ -17,7 +17,7 @@ public class Visual : MonoBehaviour
     [SerializeField] Sprite[] walkSprites, layWalkSprites, crWalkSprites;
     [SerializeField] Sprite[] runSprites;
     [SerializeField] Sprite[] toCr, toLay;
-    [SerializeField] private float toAnimTime;
+    [SerializeField] private float toAnimTime, toLayAnimTime, toCrAnimTime;
 
     public void Start()
     {
@@ -74,7 +74,7 @@ public class Visual : MonoBehaviour
         {
             Ded.sprite = toCr[state];
             state++;
-            yield return new WaitForSeconds(toAnimTime / toCr.Length);
+            yield return new WaitForSeconds(toCrAnimTime / toCr.Length);
         }
         AutoWalk = true;
         StopCoroutine(Cr());
@@ -95,7 +95,7 @@ public class Visual : MonoBehaviour
         {
             Ded.sprite = toLay[state];
             state++;
-            yield return new WaitForSeconds(toAnimTime / toLay.Length);
+            yield return new WaitForSeconds(toLayAnimTime / toLay.Length);
         }
         AutoWalk = true;
         StopCoroutine(Lay());
@@ -137,7 +137,7 @@ public class Visual : MonoBehaviour
                         }
                         animIndex = (animIndex > (mainCount - 2)) ? 0 : ++animIndex;
                      //   Debug.Log("Suka shto ti kurish " + animIndex);
-                        yield return new WaitForSeconds(0.25f);
+                        yield return new WaitForSeconds(2f);
                         break;
                     case 1: // walk
                         if (movement.isLayed)

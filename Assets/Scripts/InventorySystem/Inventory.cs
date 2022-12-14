@@ -71,7 +71,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.I))
+        if(Input.GetKeyUp(KeyCode.Tab))
         {
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
         }
