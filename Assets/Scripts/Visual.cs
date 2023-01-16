@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //этот скрипт отвечает за изменение спрайта персонажа и его деталей
+// √овно, переписывай
 
 public class Visual : MonoBehaviour
 {

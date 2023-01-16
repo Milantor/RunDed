@@ -1,30 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //этот скрипт отвечает за передвижение GO персонажа в мире
 
-public class Movement : MonoBehaviour
+public class Movement : MonoBehaviour // ѕереименовать в Controller
 {
+    Vector2? fixedVelocity = null;
+
+
+
+
     public bool useUnscaledTime;
     public Sprite testo;
     Visual visual;
-    public float Hspeed; //скорость(горизонтальна€)
-    public float Vspeed; //скорость(вертикальна€)
-    public float speedModificator;
-    private float jumpSpeedModificator;
-    public float VspeedModificator;
-    public bool inDash;
+    public float speedModificator; // в отдельный класс с константами надо бл€ть
+    private float jumpSpeedModificator; // тоже самое сука
+    public float VspeedModificator; // бл€€€€€€€€€€€€€€ть
+    public int DashCounter; // стейт машины сука
     Rigidbody2D _rb;
-    private float runModificator;
-    private float layModificator = 1f;
-    private bool isPressed100Ms;
-    public bool isRun;
-    public bool isCrought, isLayed;
+    private float runModificator; // б€лть стейты
+    private float layModificator = 1f; // что это бл€ть
+    private bool isPressed100Ms; //—” ј
+    public bool isRun; //—“≈…“ ћјЎ»Ќџ
+    public bool isCrought, isLayed; //ЅЋяяяяяяяя“№
 
-    public bool onGround;
+    public bool onGround; // ѕиздец
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         visual = GetComponent<Visual>();
@@ -33,73 +37,50 @@ public class Movement : MonoBehaviour
     }
 
     float oldhspeed = 0;
-    // Update is called once per frame
+    
+    IEnumerator dash() 
+    {
+        fixedVelocity = _rb.velocity.normalized * Constants.dashSpeed;
+        yield return new WaitForSeconds(Constants.dashTime);
+        fixedVelocity = null;
+    }
+
+
+    void forceDash()
+    {
+
+    }
+
+    void updateDash()
+    {
+        if (!Input.GetMouseButtonUp(2))
+            return;
+        if (DashCounter > 0)
+        {
+
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             Application.Quit();
         }
-        #region basic move
-        Vector3 velocity = Vector3.zero;
-        #region Horizontal
-        //switch (Input.GetAxis("Horizontal"))
-        //{
-        //    case > 0:
-        //        Hspeed = 1;
-        //        break;
-        //    case < 0:
-        //        Hspeed = -1;
-        //        break;
-        //    case 0:
-        //        Hspeed = 0;
-        //        break;
-        //}
-        Hspeed = Input.GetAxis("Horizontal");
-        #endregion
-        #region Vertical
-        #region Up
+        Vector2 controllerOffset = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
-            _rb.AddForce(Vector2.up * Vspeed, ForceMode2D.Impulse);
-            //StartCoroutine(Jump());
-            //Debug.Log("JUMP!");
+            _rb.AddForce(Vector2.up, ForceMode2D.Impulse);
         }
-        if (_rb.velocity.y > 0)
-        {
-            _rb.gravityScale = 3;
-        }
-        else if (_rb.velocity.y == 0)
-        {
-            _rb.gravityScale = 1;
-        }
-        else
-        {
-            _rb.gravityScale = 5;
-        }
-        #endregion
-        #region Down
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    if (!onGround)
-        //    {
-        //        StartCoroutine(Down());
-        //    }
-        //}
-        #endregion
-        #endregion
-        #region Dash
-        if ((Input.GetKeyUp(KeyCode.CapsLock) || Input.GetMouseButtonUp(2)) && !inDash)
+        if ((Input.GetKeyUp(KeyCode.CapsLock) || Input.GetMouseButtonUp(2)) /*&& !inDash*/)
         {
             speedModificator *= 2.5f;
             // VspeedModificator *= 2;
-            inDash = true;
+            //inDash = true;
             // Camera.main.orthographicSize *= 1.2f;
             StartCoroutine(StopDash());
             //  visual.StartCoroutine("TrailSpawner");
         }
-        #endregion
-        #region MOOOVE
         if (onGround)
             jumpSpeedModificator = 1;
         else
@@ -125,15 +106,14 @@ public class Movement : MonoBehaviour
             isRun = false;
             runModificator = 1f;
         }
-        velocity += new Vector3(Hspeed * speedModificator /* jumpSpeedModificator */* layModificator * runModificator * (useUnscaledTime == true ? Time.unscaledTime / 20 : 1), 0, 0);
+        /* velocity += new Vector3(Hspeed * speedModificator /* jumpSpeedModificator * layModificator * runModificator * (useUnscaledTime == true ? Time.unscaledTime / 20 : 1), 0, 0);
         _rb.MovePosition(transform.position + velocity);
         if (Hspeed != oldhspeed)
         {
             //  visual.SpeedChanged(Hspeed);
         }
         oldhspeed = Hspeed;
-        #endregion
-        #endregion
+        */
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (isCrought == true)
@@ -179,7 +159,7 @@ public class Movement : MonoBehaviour
         speedModificator /= 2.5f;
         //   VspeedModificator /= 2;
         // Camera.main.orthographicSize /= 1.2f;
-        inDash = false;
+        //inDash = false;
     }
 
     //IEnumerator Jump()
