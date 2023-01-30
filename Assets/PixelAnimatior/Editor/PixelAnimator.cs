@@ -22,7 +22,7 @@ namespace PixelAnimator
         }
         private void Update()
         {
-            if (movableNode is null &&
+            if (movableNode == null &&
                 (Event.current.type == EventType.MouseDown) &&
                 Event.current.button == 0)
             {
