@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 using static UnityEngine.KeyCode;
@@ -8,23 +6,22 @@ using static UnityEngine.KeyCode;
 public static class Constants
 {
     // Player
-        public static float dashTime = .3f;
-        public static float dashSpeed = 10f;
+        public const float DASH_TIME  = .3f;
+        public const float DASH_SPEED = 10f;
 
-        public static float jumpPower = 250f;
-
-        public static float maxWalkAcceleration = 6f;
-        public static float maxWalkSpeed = 8f;
+        public const float JUMP_POWER = 250f;
+        public const float MAX_WALK_ACCELERATION = 6f;
+        public const float MAX_WALK_SPEED = 8f;
 
     // Control
-    public static Dictionary<string, List<KeyCode>> keysDefenitions = new()
+    private static Dictionary<string, List<KeyCode>> keysDefinitions = new()
     {
         {"Jump", new List<KeyCode>() { KeyCode.Space } },
         {"Dash", new List<KeyCode>() { LeftControl } },
     };
     public static bool IsKeyDown(string name)
     {
-        var keys = keysDefenitions[name];
+        var keys = keysDefinitions[name];
         foreach (var i in keys)
             if (Input.GetKeyDown(i))
                 return true;
@@ -32,7 +29,7 @@ public static class Constants
     }
     public static bool IsKey(string name)
     {
-        var keys = keysDefenitions[name];
+        var keys = keysDefinitions[name];
         foreach (var i in keys)
             if (Input.GetKey(i))
                 return true;
@@ -40,7 +37,7 @@ public static class Constants
     }
     public static bool IsKeyUp(string name)
     {
-        var keys = keysDefenitions[name];
+        var keys = keysDefinitions[name];
         foreach (var i in keys)
             if (Input.GetKeyUp(i))
                 return true;
