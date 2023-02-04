@@ -21,7 +21,7 @@ public class DraDr : MonoBehaviour
         }
         else
         {
-            Inventory._instance.SwapCells(obj, cell);
+            Inventory.SwapCells(obj, cell);
             Debug.Log("Swapped! " + obj.ID + "&" + cell.ID);
             cell.GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f, 1f);
             StartCoroutine(revertColor(cell));

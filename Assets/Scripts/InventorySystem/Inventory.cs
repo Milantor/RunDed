@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -5,21 +6,21 @@ using UnityEngine;
 /// </summary>
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] GameObject inventoryPanel;
-    [SerializeField] GameObject childPrefab;
-    [SerializeField] InventoryCell[] cells;
+    [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private GameObject childPrefab;
+    [SerializeField] private InventoryCell[] cells;
     public static Inventory _instance;
 
     private void Start()
     {
         if (_instance != null)
-            Debug.LogError("WATAFUKA? >1 Inventory.cs script ons scene? AWFUL");
+            throw new StackOverflowException("WATAFUKA? >1 Inventory.cs script ons scene? AWFUL");
         _instance = this;
-        int i = 0;
-        foreach(InventoryCell cell in cells)
+        var i = 0;
+        foreach(var cell in cells)
         {
             cell.ID = i;
-            GameObject _go = Instantiate(childPrefab, cell.transform);
+            var _go = Instantiate(childPrefab, cell.transform);
             cell.UpdateCell();
             ++i;
         }
@@ -28,19 +29,15 @@ public class Inventory : MonoBehaviour
     /// <summary>
     /// Возвращает клетку по ID
     /// </summary>
-    /// <param name="ID">ID клетки (<see cref="InventoryCell.ID"/>)</param>
+    /// <param name="id">ID клетки (<see cref="InventoryCell.ID"/>)</param>
     /// <returns><see cref="InventoryCell"/></returns>
-    public InventoryCell GetCellById(int ID)
+    private InventoryCell GetCellById(int id)
     {
-        if (ID < 0 || ID > (cells.Length - 1))
+        if (id < 0 || id > (cells.Length - 1))
         {
-            Debug.LogError("GetCellById: Out of range");
-            return cells[0];
+            throw new IndexOutOfRangeException("GetCellById: Out of range");
         }
-        else
-        {
-            return cells[ID];
-        }
+        return cells[id];
     }
 
     /// <summary>
@@ -48,11 +45,9 @@ public class Inventory : MonoBehaviour
     /// </summary>
     /// <param name="cell">Первая клетка</param>
     /// <param name="_cell">Вторая клетка</param>
-    public void SwapCells(InventoryCell cell, InventoryCell _cell)
+    public static void SwapCells(InventoryCell cell, InventoryCell _cell)
     {
-        Item item = cell.item;
-        cell.item = _cell.item;
-        _cell.item = item;
+        (cell.item, _cell.item) = (_cell.item, cell.item);
         cell.UpdateCell();
         _cell.UpdateCell();
     }
@@ -60,13 +55,12 @@ public class Inventory : MonoBehaviour
     /// <summary>
     /// Вручную изменяет предмет на новый в конкретной клетке
     /// </summary>
-    /// <param name="CellId">ID Клетки с предметом</param>
-    /// <param name="ItemId">ID Нового предмета</param>
-    /// <param name="ItemIcon">Иконка предмета</param>
-    public void ChangeItemInCell(int CID, string IID)
+    /// <param name="cid">ID Клетки с предметом</param>
+    /// <param name="iid">ID Нового предмета</param>
+    public void ChangeItemInCell(int cid, string iid)
     {
-        GetCellById(CID).item = new Item(IID);
-        GetCellById(CID).UpdateCell();
+        GetCellById(cid).item = new Item(iid);
+        GetCellById(cid).UpdateCell();
     }
 
     private void Update()

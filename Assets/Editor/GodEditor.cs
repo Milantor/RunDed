@@ -5,12 +5,17 @@ using UnityEngine;
 /// </summary>
 [CustomEditor(typeof(God))]
 [CanEditMultipleObjects]
-class GodEditor : Editor
+internal class GodEditor : Editor
 {
+    private Inventory _instance;
+    public void Start()
+    {
+	    _instance = Inventory._instance;
+    }
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
         if (GUILayout.Button("Give"))
-            Inventory._instance.ChangeItemInCell(God._instance.CellId, God._instance.ItemId);
+            _instance.ChangeItemInCell(God._instance.cellId, God._instance.itemId);
     }
 }

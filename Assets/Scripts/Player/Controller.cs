@@ -1,33 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    public IControllable controllable;
+    private IControllable _controllable;
 
     private void Start()
     {
-        controllable = Component.FindAnyObjectByType<Player>();
+        _controllable = FindAnyObjectByType<Player>();
     }
-    void Update()
+
+    private void Update()
     {
-        if (controllable is null) return;
+        if (_controllable is null) return;
 
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.01)
-            controllable.Move(Input.GetAxisRaw("Horizontal"));
+            _controllable.Move(Input.GetAxisRaw("Horizontal"));
 
         if (Constants.IsKeyDown("Jump"))
-            controllable.Jump();
+            _controllable.Jump();
         if (Constants.IsKeyDown("Dash"))
-            controllable.Dash();
+            _controllable.Dash();
     }
 }
 
 public interface IControllable
 {
+    /// <summary>
+    /// Движение по горизонтали
+    /// </summary>
+    /// <param name="value">Горизонтальная ось<br/>(-1&lt;value&lt;1)</param>
     public void Move(float value);
+    /// <summary>
+    /// Толчок вверх
+    /// </summary>
     public void Jump();
+    /// <summary>
+    /// Кратковременное ускорение
+    /// </summary>
     public void Dash(); // Добавить в параметры направление
+    /// <summary>
+    /// Рывок в определенном направлении
+    /// </summary>
+    /// <param name="direction">Направление рывка</param>
     public void ForceDash(float direction);
 }

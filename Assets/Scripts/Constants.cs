@@ -14,6 +14,9 @@ public static class Constants
         public const float MAX_WALK_SPEED = 8f;
 
     // Control
+    /// <summary>
+    /// Нужен для назначения нескольких клавиш на одно действие
+    /// </summary>
     private static Dictionary<string, List<KeyCode>> keysDefinitions = new()
     {
         {"Jump", new List<KeyCode>() { KeyCode.Space } },

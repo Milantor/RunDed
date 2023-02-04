@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Http.Headers;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IControllable
@@ -10,7 +9,7 @@ public class Player : MonoBehaviour, IControllable
     public int dashCounter = 1;
     public PoseState poseState = PoseState.Walk;
 
-    private Vector2? _fixedVelocity = null; // �������� ��������
+    private Vector2? _fixedVelocity; // �������� ��������
 
     private Rigidbody2D _rb;
 
@@ -22,7 +21,7 @@ public class Player : MonoBehaviour, IControllable
     private void FixedUpdate()
     {
         if (onGround)
-        if (_fixedVelocity is not null)
+          if (_fixedVelocity is not null)
             _rb.velocity = (Vector2)_fixedVelocity;
     }
 
@@ -38,9 +37,9 @@ public class Player : MonoBehaviour, IControllable
     {
         if (dashCounter <= 0) return;
         dashCounter--; jumpCounter--;
-        StartCoroutine(dash());
+        StartCoroutine(DashCoroutine());
     }
-    IEnumerator dash()
+    private IEnumerator DashCoroutine()
     {
         _fixedVelocity = Constants.DASH_SPEED * _rb.velocity.normalized;
         yield return new WaitForSeconds(Constants.DASH_TIME);
@@ -58,27 +57,27 @@ public class Player : MonoBehaviour, IControllable
 
     public void Move(float value)
     {
-        if (value > 0)
-            _rb.AddForce(new Vector2(Mathf.Clamp(Constants.MAX_WALK_SPEED - _rb.velocityX, 0, Constants.MAX_WALK_ACCELERATION), 0));
-        else
-            _rb.AddForce(new Vector2(-Mathf.Clamp(Constants.MAX_WALK_SPEED + _rb.velocityX, 0, Constants.MAX_WALK_ACCELERATION), 0));
+        _rb.AddForce(value > 0
+            ? new Vector2(Mathf.Clamp(Constants.MAX_WALK_SPEED - _rb.velocityX, 0, Constants.MAX_WALK_ACCELERATION), 0)
+            : new Vector2(-Mathf.Clamp(Constants.MAX_WALK_SPEED + _rb.velocityX, 0, Constants.MAX_WALK_ACCELERATION),
+                0));
     }
 
-    List<Collision2D> collisions = new List<Collision2D>();
+    private List<Collision2D> _collisions = new();
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.bounds.min.y <= GetComponent<BoxCollider2D>().bounds.max.y)
         {
-            collisions.Add(collision);
+            _collisions.Add(collision);
             onGround = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collisions.Contains(collision))
+        if (_collisions.Contains(collision))
         {
-            collisions.Remove(collision);
-            if (collisions.Count == 0)
+            _collisions.Remove(collision);
+            if (_collisions.Count == 0)
                 onGround = false;
         }
     }

@@ -16,10 +16,17 @@ public class InventoryCell : MonoBehaviour, IPointerClickHandler
     /// </summary>
     public int ID;
 
+    private Image _image;
+
+    private void Start()
+    {
+        _image = transform.GetChild(0).GetComponent<Image>();
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         DraDr._instance.Click(this);
-        Debug.Log("Clicked cell id: " + ID + "\nClicked item id: " + item.id);
+        Debug.Log(string.Format("Clicked cell id: {0}\nClicked item id: {1}", ID.ToString(), item.id));
     }
 
     /// <summary>
@@ -33,7 +40,7 @@ public class InventoryCell : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            transform.GetChild(0).GetComponent<Image>().sprite = ItemIcons.icons[item.id];
+            _image.sprite = ItemIcons.icons[item.id];
         }
     }
 }
