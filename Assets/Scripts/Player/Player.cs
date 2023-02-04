@@ -57,10 +57,20 @@ public class Player : MonoBehaviour, IControllable
 
     public void Move(float value)
     {
-        _rb.AddForce(value > 0
-            ? new Vector2(Mathf.Clamp(Constants.MAX_WALK_SPEED - _rb.velocityX, 0, Constants.MAX_WALK_ACCELERATION), 0)
-            : new Vector2(-Mathf.Clamp(Constants.MAX_WALK_SPEED + _rb.velocityX, 0, Constants.MAX_WALK_ACCELERATION),
-                0));
+        if (Mathf.Abs(value) > 0.01)
+        {
+            _rb.AddForce(value > 0
+                ? new Vector2(Mathf.Clamp(Constants.MAX_WALK_SPEED - _rb.velocityX, 0, Constants.MAX_WALK_ACCELERATION),
+                    0)
+                : new Vector2(
+                    -Mathf.Clamp(Constants.MAX_WALK_SPEED + _rb.velocityX, 0, Constants.MAX_WALK_ACCELERATION),
+                    0));
+            _rb.drag = 0;
+        }
+        else
+        {
+            _rb.drag = 2;
+        }
     }
 
     private List<Collision2D> _collisions = new();

@@ -13,7 +13,6 @@ public class Controller : MonoBehaviour
     {
         if (_controllable is null) return;
 
-        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.01)
             _controllable.Move(Input.GetAxisRaw("Horizontal"));
 
         if (Constants.IsKeyDown("Jump"))

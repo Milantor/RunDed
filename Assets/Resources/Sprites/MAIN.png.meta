@@ -1003,6 +1003,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: floor
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 428
+        width: 64
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35471cfe2f698ba4aa40394f0a9314c1
+      internalID: 1331150735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1068,6 +1089,7 @@ TextureImporter:
       30: 1707624485
       Laywalk 5: -2039662497
       run 7: 329732359
+      floor: 1331150735
       Laywalk 2: 1352575613
       70: 755838922
       10: 81702219
