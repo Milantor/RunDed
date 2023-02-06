@@ -11,6 +11,7 @@ public class Stats : MonoBehaviour
 	private void Start()
 	{
 		entityMaxId++;
+		if (Hp == 0) Hp = 1000;
 	}
 
 	public int GetDamage(int damage)

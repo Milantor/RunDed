@@ -6,12 +6,12 @@ using static UnityEngine.KeyCode;
 public static class Constants
 {
     // Player
-        public const float DASH_TIME  = .3f;
-        public const float DASH_SPEED = 10f;
+    public const float DASH_TIME = .3f;
+    public const float DASH_SPEED = 10f;
 
-        public const float JUMP_POWER = 250f;
-        public const float MAX_WALK_ACCELERATION = 6f;
-        public const float MAX_WALK_SPEED = 8f;
+    public const float JUMP_POWER = 250f;
+    public const float MAX_WALK_ACCELERATION = 6f;
+    public const float MAX_WALK_SPEED = 8f;
 
     // Control
     /// <summary>
@@ -19,9 +19,10 @@ public static class Constants
     /// </summary>
     private static Dictionary<string, List<KeyCode>> keysDefinitions = new()
     {
-        {"Jump", new List<KeyCode>() { KeyCode.Space } },
-        {"Dash", new List<KeyCode>() { LeftControl } },
+        { "Jump", new List<KeyCode>() { KeyCode.Space } },
+        { "Dash", new List<KeyCode>() { LeftControl } },
     };
+
     public static bool IsKeyDown(string name)
     {
         var keys = keysDefinitions[name];
@@ -30,6 +31,7 @@ public static class Constants
                 return true;
         return false;
     }
+
     public static bool IsKey(string name)
     {
         var keys = keysDefinitions[name];
@@ -38,6 +40,7 @@ public static class Constants
                 return true;
         return false;
     }
+
     public static bool IsKeyUp(string name)
     {
         var keys = keysDefinitions[name];
@@ -45,5 +48,20 @@ public static class Constants
             if (Input.GetKeyUp(i))
                 return true;
         return false;
+    }
+
+    public static bool IsMouseDown(int button)
+    {
+        return Input.GetMouseButtonDown(button);
+    }
+
+    public static bool IsMouse(int button)
+    {
+        return Input.GetMouseButton(button);
+    }
+
+    public static bool IsMouseUp(int button)
+    {
+        return Input.GetMouseButtonUp(button);
     }
 }
