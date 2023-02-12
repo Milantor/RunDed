@@ -1,37 +1,45 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-//не готово. не знаю как сделать и поэтому забил хуй
+using System.Linq;
+using UnityEngine;
+
+//TODO: Сделать универсальный пул для любых объектов
+/// <summary>
+/// GameObject Pool
+/// </summary>
 public class Pool
 {
 	//public static Dictionary<string, List<Type>> pools; //TODO: Add a normal pool create
-	public static List<Pool> pools { get; }
-	private string _name;
-	private IList _objects;
+	public static Dictionary<string,Pool> pools { get; private set; }
+	public List<GameObject> data { get; }
 
-	public Pool(string name, object _object)
+	public Pool(GameObject firstObject)
 	{
-		foreach (Pool pool in pools)
+		GameObject _go = Instantiator.Instantiate(firstObject);
+		data = new List<GameObject> { _go };
+	}
+
+	public static void New(string poolName, GameObject go)
+	{
+		pools ??= new Dictionary<string, Pool>();
+		if (!pools.ContainsKey(poolName))
 		{
-			if (pool._name == name)
-			{
-				throw new OverflowException("Пул с таким именем уже существует");
-			}
+			Debug.Log("New pool initialized");
+			pools.Add(poolName, new Pool(go));
 		}
-		_name = name;
-		_objects = createList(_object.GetType());
-		_objects.Add(_object);
-		AddPool(this);
+		else throw new OverflowException("This key is already assigned");
 	}
 
-	private static void AddPool(Pool pool)
+	public GameObject Get()
 	{
-		pools.Add(pool);
-	}
-	
-	private IList createList(Type myType)
-	{
-		Type genericListType = typeof(List<>).MakeGenericType(myType);
-		return (IList)Activator.CreateInstance(genericListType);
+		foreach (var go in data.Where(go => !go.activeSelf))
+		{
+			go.SetActive(true);
+			return go;
+		}
+		var dataObj = Instantiator.Instantiate(data[0]);
+		data.Add(dataObj);
+		data[^1].SetActive(true);
+		return data[^1];
 	}
 }

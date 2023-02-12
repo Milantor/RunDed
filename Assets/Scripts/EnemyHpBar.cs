@@ -1,20 +1,30 @@
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//#TODO: Сделать автономным чтобы работало от скрипта Stats;
 public class EnemyHpBar : MonoBehaviour
 {
-    private Stats cc;
-    public Image _image;
-    public Text text;
+    public List<Stats> statses;
+    public List<GameObject> gos;
+    private Dictionary<Stats, GameObject> table;
     private void Start()
     {
-        cc = GetComponent<Stats>();
-    }
+        table = statses.Zip(gos, (k, v) => new { k, v })
+            .ToDictionary(x => x.k, x => x.v);
 
-    private void Update()
+    }
+    
+    public void BarsUpdate()
     {
-        _image.fillAmount = (float)cc.Hp / 1000;
-        text.text = cc.Hp.ToString() + " / 1000";
+        foreach (var stats in table)
+        {
+            var stat = stats.Key;
+            var bar = stats.Value;
+            bar.GetComponentInChildren<Image>().fillAmount = (float)stat.Hp / 1000;
+            bar.GetComponentInChildren<Text>().text = stat.Hp + " / 1000";
+        }
     }
 }

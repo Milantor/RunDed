@@ -8,14 +8,18 @@ public class Stats : MonoBehaviour
 
 	public int Hp { get; private set; }
 
+	private EnemyHpBar _enemyHpBar;
+
 	private void Start()
 	{
+		_enemyHpBar = FindAnyObjectByType<EnemyHpBar>();
 		entityMaxId++;
 		if (Hp == 0) Hp = 1000;
 	}
 
 	public int GetDamage(int damage)
 	{
+		_enemyHpBar.BarsUpdate();
 		if (Hp - damage <= 0) {
 			Hp = 0;
 			Death();
@@ -29,7 +33,6 @@ public class Stats : MonoBehaviour
 
 	private void Death()
 	{
-		
-		
+		Hp = 1000; // TEMP
 	}
 }

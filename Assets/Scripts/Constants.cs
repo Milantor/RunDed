@@ -9,9 +9,16 @@ public static class Constants
     public const float DASH_TIME = .3f;
     public const float DASH_SPEED = 10f;
 
-    public const float JUMP_POWER = 250f;
+    public const float JUMP_POWER = 500f;
     public const float MAX_WALK_ACCELERATION = 6f;
     public const float MAX_WALK_SPEED = 8f;
+    
+    // Test Riffle
+    public const int DAMAGE = 2;
+    public const float SPEED = 2f;
+    public const float LIFE_TIME = 2f;
+    public const float RELOAD_TIME = 0.5f;
+    
 
     // Control
     /// <summary>
@@ -21,6 +28,7 @@ public static class Constants
     {
         { "Jump", new List<KeyCode>() { KeyCode.Space } },
         { "Dash", new List<KeyCode>() { LeftControl } },
+        { "Reload", new List<KeyCode>() { R } },
     };
 
     public static bool IsKeyDown(string name)
