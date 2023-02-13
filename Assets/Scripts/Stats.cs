@@ -10,7 +10,7 @@ public class Stats : MonoBehaviour
 
 	private EnemyHpBar _enemyHpBar;
 
-	private void Start()
+	private void Awake()
 	{
 		_enemyHpBar = FindAnyObjectByType<EnemyHpBar>();
 		entityMaxId++;
