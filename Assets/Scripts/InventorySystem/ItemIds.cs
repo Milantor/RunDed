@@ -2,7 +2,7 @@ using System.Collections.Generic;
 /// <summary>
 /// —ловарь CODE:ID предметов
 /// </summary>
-public static class ItemIds
+public static class ItemIds // бл€ть а наху€ € это создал #TODO: уничтожить
 {
     public static Dictionary<string, string> ids = new Dictionary<string, string>();
 

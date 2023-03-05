@@ -5,12 +5,18 @@ using UnityEngine;
 /// </summary>
 public static class ItemIcons
 {
-    public static Dictionary<string, Sprite> icons = new Dictionary<string, Sprite>();
-    private static Dictionary<string, Sprite> Sprites = new Dictionary<string, Sprite>();
+    public static Dictionary<string, Sprite> icons = new();
+    private static Dictionary<string, Sprite> Sprites = new();
     private static Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/Sprites");
+    private static Sprite[] weapons = Resources.LoadAll<Sprite>("Sprites/weapons");
     public static void Start()
     {
-        foreach (Sprite sprite in sprites)
+        foreach (var sprite in sprites)
+        {
+            if (!Sprites.ContainsKey(sprite.name))
+                Sprites.Add(sprite.name, sprite);
+        }
+        foreach (var sprite in weapons)
         {
             if (!Sprites.ContainsKey(sprite.name))
                 Sprites.Add(sprite.name, sprite);
@@ -23,5 +29,7 @@ public static class ItemIcons
             icons.Add("fish", Sprites["fish"]);
         if (!icons.ContainsKey("stone"))
             icons.Add("stone", Sprites["stone"]);
+        if (!icons.ContainsKey("rifle"))
+            icons.Add("rifle", Sprites["rifle"]);
     }
 }

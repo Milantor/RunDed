@@ -7,14 +7,17 @@ public class Projectile : MonoBehaviour
 	private Transform launchPosition, projectileTransform;
 	private Vector3 position, right, direction;
 	private Stats lastEnemy;
-	public int damage { get; private set; }
+	private Camera _camera;
+	public int damage { get; set; }
 	public float speed { get; private set; }
+	public float angleSpread;
 
 	private void Awake()
 	{
-		damage = Constants.DAMAGE;
+		_camera = Camera.main;
 		speed = Constants.SPEED;
-		launchPosition = FindAnyObjectByType<Player>().GetComponent<Transform>().GetChild(0).GetChild(0).GetComponent<Transform>();
+		launchPosition = FindAnyObjectByType<Player>().GetComponent<Transform>().GetChild(0).GetChild(0)
+			.GetComponent<Transform>();
 		projectileTransform = transform;
 	}
 
@@ -26,24 +29,28 @@ public class Projectile : MonoBehaviour
 	public void Launch()
 	{
 		projectileTransform.position = launchPosition.position;
-		direction = Input.mousePosition - Camera.main.WorldToScreenPoint(projectileTransform.position);
-		projectileTransform.rotation = Quaternion.AngleAxis(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg, Vector3.forward);
-		StartCoroutine(nameof(deactive));
+		direction = Input.mousePosition - _camera.WorldToScreenPoint(projectileTransform.position);
+		projectileTransform.rotation = Quaternion.AngleAxis(
+			Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + Random.Range(-angleSpread / 2, angleSpread / 2),
+			Vector3.forward);
+		StartCoroutine(nameof(Deactive));
 	}
 
-	IEnumerator deactive()
+	private IEnumerator Deactive()
 	{
 		yield return new WaitForSeconds(Constants.LIFE_TIME);
 		gameObject.SetActive(false);
 	}
-	
+
 	private RaycastHit2D hit;
+
 	private void Update()
 	{
 		position = projectileTransform.position;
 		right = projectileTransform.right;
 		Debug.DrawRay(position, right, Color.red);
-		hit = Physics2D.Raycast(position, right, 0.5f); // 0.5f - расстояние обнаружения пулей обьекта перед ней. Чем больше скорость пули тем больше должен быть этот параметр для нормальной работы
+		hit = Physics2D.Raycast(position, right,
+			0.5f); // 0.5f - расстояние обнаружения пулей обьекта перед ней. Чем больше скорость пули тем больше должен быть этот параметр для нормальной работы
 		transform.Translate(Vector3.right * ((speed + Random.Range(5, 3)) * 3 * Time.deltaTime));
 		if (hit.collider is not null)
 		{
@@ -75,7 +82,11 @@ public class Projectile : MonoBehaviour
 	private void CollisionEnter(Component col)
 	{
 		lastEnemy = col.gameObject.GetComponent<Stats>();
-		if(col.gameObject.GetComponent<Stats>())
+		if (col.gameObject.GetComponent<Stats>())
+		{
 			lastEnemy.GetDamage(damage);
+			StopAllCoroutines();
+			gameObject.SetActive(false);
+		}
 	}
 }

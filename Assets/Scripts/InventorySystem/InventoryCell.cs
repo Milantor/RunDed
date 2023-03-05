@@ -37,7 +37,7 @@ public class InventoryCell : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            _image.sprite = ItemIcons.icons[item.id];
+            _image.sprite = item.sprite;
         }
     }
 }

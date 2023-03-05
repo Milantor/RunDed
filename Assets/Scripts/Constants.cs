@@ -29,6 +29,7 @@ public static class Constants
         { "Jump", new List<KeyCode>() { KeyCode.Space } },
         { "Dash", new List<KeyCode>() { LeftControl } },
         { "Reload", new List<KeyCode>() { R } },
+        { "Inventory", new List<KeyCode>() { Tab } },
     };
 
     public static bool IsKeyDown(string name)

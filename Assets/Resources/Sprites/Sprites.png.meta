@@ -5183,11 +5183,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_240
+      name: -----
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1
         width: 48
         height: 48
       alignment: 0
@@ -5593,6 +5593,7 @@ TextureImporter:
       Sprites_55: 430176227
       Sprites_104: -1525878451
       Sprites_168: -2580521
+      -----: -1226759938
       Sprites_129: -1460539951
       Sprites_43: -799525203
       Sprites_15: 619158820
@@ -5719,7 +5720,6 @@ TextureImporter:
       Sprites_26: -1656697455
       Sprites_93: -1037974632
       Sprites_33: -175699018
-      Sprites_240: -1226759938
       Sprites_121: -1819697040
       Sprites_79: -466090955
       Sprites_120: -516567626

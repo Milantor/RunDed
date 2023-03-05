@@ -8,28 +8,20 @@ public class Item
     /// <summary>
     /// ID предмета, даёт понять какой это именно тип предмета
     /// </summary>
-    private string ID;
-    /// <summary>
-    /// (Только для чтения) ID предмета, даёт понять какой это именно тип предмета
-    /// </summary>
-    public string id { get => ID;}
+    public string id { get; }
     /// <summary>
     /// Спрайт иконки
     /// </summary>
-    private Sprite sprite;
-    /// <summary>
-    /// (Только для чтения) Спрайт иконки
-    /// </summary>
-    public Sprite Sprite { get => sprite; }
+    public Sprite sprite { get; }
 
 
     /// <summary>
     /// Конструктор класса <see cref="Item"/>
     /// </summary>
-    /// <param name="_ID">ID предмета, даёт понять какой это именно тип предмета</param>
-    public Item(string _ID = "NONE")
+    /// <param name="id">ID предмета, даёт понять какой это именно тип предмета</param>
+    public Item(string id = "empty")
     {
-        ID = ItemIds.ids[_ID];
-        sprite = ItemIcons.icons[ID];
+        this.id = id;
+        sprite = ItemIcons.icons[id];
     }
 }
