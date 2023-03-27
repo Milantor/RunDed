@@ -3586,7 +3586,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3685,18 +3684,6 @@ MonoBehaviour:
   xOffset: 0
   yOffset: 0
   zOffset: -10
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb4fc440e6bc1b742a670a8555e81b97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &539771146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,6 +5045,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellId: 0
   itemId: apple
+  bulletType: 0
+  magazineSize: 0
+  bulletsPerShot: 0
+  bulletsPerMinute: 0
+  angleSpread: 0
+  speedSpread: 0
 --- !u!4 &644093784
 Transform:
   m_ObjectHideFlags: 0
@@ -5133,6 +5126,7 @@ MonoBehaviour:
   - {fileID: 1946485415}
   - {fileID: 2089217446}
   - {fileID: 554846979}
+  activeCell: {fileID: 0}
 --- !u!114 &644093786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9581,8 +9575,6 @@ GameObject:
   - component: {fileID: 1306345595}
   - component: {fileID: 1306345596}
   - component: {fileID: 1306345602}
-  - component: {fileID: 1306345603}
-  - component: {fileID: 1306345604}
   - component: {fileID: 1306345605}
   m_Layer: 3
   m_Name: Basic_Ded
@@ -9743,38 +9735,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395c7b07dbd941b41ab6a589d4ae832f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _combat: {fileID: 0}
+  _visual: {fileID: 0}
   onGround: 1
   jumpCounter: 1
   dashCounter: 1
   poseState: 0
---- !u!114 &1306345603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306345589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2f9cd3e4fdf474b8e2327350f18e44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRight: 0
---- !u!114 &1306345604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306345589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7366d37c8c7bf0d42bb645add46c3fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rifleProjectile: {fileID: 8211519588414394272, guid: 561755ba785e57741bf9c011799f20da, type: 3}
-  maxBulletCount: 0
-  bulletCount: 0
 --- !u!114 &1306345605
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    private IControllable _controllable;
+    public IControllable _controllable;
 
     private void Start()
     {

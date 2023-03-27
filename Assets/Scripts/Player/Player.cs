@@ -1,17 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IControllable
 {
+    public Controller _controller;
+    public Combat _combat;
+    public Visual _visual;
     public bool onGround = true;
     public int jumpCounter = 1;
     public int dashCounter = 1;
     public PoseState poseState = PoseState.Walk;
 
-    private Vector2? _fixedVelocity; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    private Vector2? _fixedVelocity; // ???????? ???????? какое-то чмо снесло кодировку не помню что здесь было
 
     private Rigidbody2D _rb;
+
+    private void Awake()
+    {
+        _controller = gameObject.AddComponent<Controller>();
+        _controller._controllable = this;
+        _visual = gameObject.AddComponent<Visual>();
+        _visual._player = this;
+        _combat = gameObject.AddComponent<Combat>();
+        _combat._player = this;
+    }
 
     private void Start()
     {

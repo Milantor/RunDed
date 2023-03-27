@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Visual : MonoBehaviour
 {
+    public Player _player;
     public bool isRight;
     private SpriteRenderer playerSpriteRenderer;
     private Transform weaponTransform;

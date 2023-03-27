@@ -1,17 +1,21 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Боевая система
+/// </summary>
 public class Combat : MonoBehaviour
 {
     private IEnumerator shotRoutine;
     [SerializeField] private GameObject rifleProjectile; //#TODO: DELETE
     public int maxBulletCount, bulletCount; //#TODO: DELETE
     private Weapon weapon;
+    public Player _player;
     private Visual _visual;
 
     private void Start()
     {
-        _visual = FindAnyObjectByType<Visual>();
+        _visual = _player._visual;
         Pool.New("rifleProjectile", rifleProjectile);
         maxBulletCount = weapon.magazineSize;
         bulletCount = maxBulletCount;
@@ -47,6 +51,12 @@ public class Combat : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Создаёт необходимое количество пуль в зависимости от количества патронов, типа оружия и времени, прошедшего после создания предыдущей пули
+    /// </summary>
+    /// <param name="shotDelay">Задержка перед следующей пулей (Например у ПП, автоматов и т.д.)</param>
+    /// <param name="once">Отсутствует ли стрельба по зажатию или нет</param>
+    /// <returns></returns>
     private IEnumerator Shot(float shotDelay = 0, bool once = true)
     {
         if (bulletCount <= 0)
@@ -73,12 +83,19 @@ public class Combat : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Корутина ждет время и восстанавливает патроны
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator Reload()
     {
         yield return new WaitForSeconds(Constants.RELOAD_TIME);
         bulletCount = maxBulletCount;
     }
 
+    /// <summary>
+    /// Вызывает из пула пулю и устанавливает ей определённые характеристики
+    /// </summary>
     private void SummonProjectile()
     {
         var go = Pool.pools["rifleProjectile"].Get();

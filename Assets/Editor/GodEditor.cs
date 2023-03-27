@@ -9,7 +9,8 @@ internal class GodEditor : Editor
 {
     private Inventory _inventory;
     private God _god;
-    public void Start()
+
+    private void Start()
     {
 	    _inventory = Inventory._instance;
         _god = God._instance;   

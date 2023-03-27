@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Меняет предметы в ячейках инвентаря местами
+/// </summary>
 public class DraDr : MonoBehaviour
 {
     private InventoryCell obj;

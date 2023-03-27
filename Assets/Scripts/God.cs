@@ -1,7 +1,9 @@
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+/// <summary>
+/// Скрипт для тестовой хуйни
+/// </summary>
 public class God : MonoBehaviour
 {
     public static God _instance;
@@ -26,7 +28,9 @@ public class God : MonoBehaviour
         ItemIcons.Start();
         Invoke(nameof(TimeS), 0.5f);
     }
-
+/// <summary>
+/// Создаёт пушки в рандомных ячейках инвентаря
+/// </summary>
     private void TimeS()
     {
         var i = Random.Range(1, 4);
