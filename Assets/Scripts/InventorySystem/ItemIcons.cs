@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ������� ID:Sprite ���������
+/// Ñëîâàðü ID:Sprite ïðåäìåòîâ
 /// </summary>
 public static class ItemIcons
 {
@@ -21,7 +21,13 @@ public static class ItemIcons
             if (!Sprites.ContainsKey(sprite.name))
                 Sprites.Add(sprite.name, sprite);
         }
-        if (!icons.ContainsKey("apple"))
+        // тупая реализация, хз какая у вас архитектура
+        foreach (var icon in new string[] {"apple", "empty", "fish", "stone", "rifle"}){
+            if (!icons.ContainsKey(icon)){
+                icons.Add(icon, Sprites[icon]);
+            }
+        }
+        /*if (!icons.ContainsKey("apple"))
             icons.Add("apple", Sprites["apple"]);
         if (!icons.ContainsKey("empty"))
             icons.Add("empty", Sprites["empty"]);
@@ -30,6 +36,7 @@ public static class ItemIcons
         if (!icons.ContainsKey("stone"))
             icons.Add("stone", Sprites["stone"]);
         if (!icons.ContainsKey("rifle"))
-            icons.Add("rifle", Sprites["rifle"]);
+            icons.Add("rifle", Sprites["rifle"]);*/
+        
     }
 }
