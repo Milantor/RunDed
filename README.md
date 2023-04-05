@@ -6,4 +6,4 @@
 музыка для игры https://drive.google.com/drive/folders/1Gc4utz2NUiDmSKkM-J68V-0wgcMpKDVI?usp=share_link
 задачи програмисте https://docs.google.com/document/d/15174ofx_TBNfNH0zs0P8udgvKYnWi6QYmXU7aZkh1IA/edit?usp=share_link
 
-проект фигня , ГЕЙмдизайнер хуйня , програмист самоучка уровня гдето между джуноиор - мидлле , художника стабильного нету .
+проект фигня , ГЕЙмдизайнер хуйня , програмист самоучка уровня гдето между джуноиор - мидлле + еблан криворукий иногда , художника стабильного нету .
