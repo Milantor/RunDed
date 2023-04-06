@@ -9,6 +9,7 @@ public static class ItemIcons
     private static Dictionary<string, Sprite> Sprites = new();
     private static Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/Sprites");
     private static Sprite[] weapons = Resources.LoadAll<Sprite>("Sprites/weapons");
+    private static Sprite[] newWeapons = Resources.LoadAll<Sprite>("Sprites/weapons4.4");
     public static void Start()
     {
         foreach (var sprite in sprites)
@@ -21,8 +22,13 @@ public static class ItemIcons
             if (!Sprites.ContainsKey(sprite.name))
                 Sprites.Add(sprite.name, sprite);
         }
-        // тупая реализация, хз какая у вас архитектура
-        foreach (var icon in new string[] {"apple", "empty", "fish", "stone", "rifle"}){
+        foreach (var sprite in newWeapons)
+        {
+            if (!Sprites.ContainsKey(sprite.name))
+                Sprites.Add(sprite.name, sprite);
+        }
+        // тупая реализация, хз какая у вас архитектура //иди нахуй
+        foreach (var icon in new string[] {"apple", "empty", "fish", "stone", "pistol", "gun", "auto", "sniper"}){
             if (!icons.ContainsKey(icon)){
                 icons.Add(icon, Sprites[icon]);
             }

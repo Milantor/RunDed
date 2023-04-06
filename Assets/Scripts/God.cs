@@ -32,10 +32,10 @@ public class God : MonoBehaviour
         var i = Random.Range(1, 4);
         for (var j = 0; j < i; j++)
         {
-            Inventory._instance.ChangeItemInCell(28, new Weapon("apple",BulletType.pistol,9,1,200,30,0));
-            Inventory._instance.ChangeItemInCell(29, new Weapon("apple",BulletType.shotgun,8,10,300,40,0));
-            Inventory._instance.ChangeItemInCell(30, new Weapon("apple",BulletType.autoRifle,30,1,500,20,0));
-            Inventory._instance.ChangeItemInCell(31, new Weapon("apple",BulletType.sniperRifle,10,1,100,1,0));
+            Inventory._instance.ChangeItemInCell(28, new Weapon("pistol",BulletType.pistol,9,1,200,30,0));
+            Inventory._instance.ChangeItemInCell(29, new Weapon("gun",BulletType.shotgun,8,10,300,40,0));
+            Inventory._instance.ChangeItemInCell(30, new Weapon("auto",BulletType.autoRifle,30,1,500,20,0));
+            Inventory._instance.ChangeItemInCell(31, new Weapon("sniper",BulletType.sniperRifle,10,1,100,1,0));
         }
     }
 }
